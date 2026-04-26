@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>뉴스 브리핑 — 2026-04-25</title>
+  <style>
+    /* ── 변수 ── */
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --border: #e0e0e0;
+      --text: #212529;
+      --text-muted: #6c757d;
+      --accent: #0d6efd;
+      --accent-hover: #0b5ed7;
+      --badge-bg: #e9ecef;
+      --badge-text: #495057;
+      --shadow: 0 1px 4px rgba(0,0,0,0.08);
+      --radius: 8px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #121212;
+        --surface: #1e1e1e;
+        --border: #333;
+        --text: #e0e0e0;
+        --text-muted: #9e9e9e;
+        --accent: #4dabf7;
+        --accent-hover: #74c0fc;
+        --badge-bg: #2c2c2c;
+        --badge-text: #adb5bd;
+        --shadow: 0 1px 4px rgba(0,0,0,0.4);
+      }
+    }
+
+    /* ── 리셋 ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+                   "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    /* ── 헤더 ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: var(--shadow);
+    }
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .header-title { font-size: 1.1rem; font-weight: 700; flex: 1; }
+    .header-meta { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; }
+    .total-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    /* ── 네비게이션 ── */
+    nav {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 8px 20px;
+    }
+    .nav-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      padding: 4px 10px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      transition: all 0.15s;
+    }
+    .nav-link:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── 메인 ── */
+    main {
+      max-width: 900px;
+      margin: 24px auto;
+      padding: 0 16px 48px;
+    }
+
+    /* ── 섹션 ── */
+    .keyword-section { margin-bottom: 36px; }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 10px 0 8px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 12px;
+    }
+    .icon { font-size: 1.1em; }
+    .badge {
+      margin-left: auto;
+      background: var(--badge-bg);
+      color: var(--badge-text);
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-weight: 500;
+    }
+    .empty { color: var(--text-muted); font-size: 0.9rem; padding: 12px 0; }
+
+    /* ── 카드 ── */
+    .cards { display: flex; flex-direction: column; gap: 10px; }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      transition: box-shadow 0.15s;
+    }
+    .card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
+    .card-title {
+      display: block;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      line-height: 1.4;
+    }
+    .card-title:hover { color: var(--accent-hover); text-decoration: underline; }
+    .card-meta {
+      display: flex;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+    .description {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+
+    /* ── 푸터 ── */
+    footer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      padding: 20px 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── 반응형 ── */
+    @media (max-width: 600px) {
+      .header-title { font-size: 0.95rem; }
+      .section-title { font-size: 0.9rem; }
+      .card { padding: 12px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <span class="header-title">📰 일일 뉴스 브리핑</span>
+      <span class="total-badge">총 1건</span>
+      <span class="header-meta">기준일: 2026-04-25</span>
+    </div>
+  </header>
+
+  <nav aria-label="키워드 바로가기">
+    <div class="nav-inner">
+      <a href="#kw-개인정보" class="nav-link">🔒 개인정보</a>
+<a href="#kw-정보보안" class="nav-link">🛡 정보보안</a>
+<a href="#kw-해킹" class="nav-link">⚠️ 해킹</a>
+<a href="#kw-삼성서울병원" class="nav-link">🏥 삼성서울병원</a>
+    </div>
+  </nav>
+
+  <main>
+    
+    <section class="keyword-section" id="kw-개인정보">
+      <h2 class="section-title">
+        <span class="icon">🔒</span>
+        개인정보
+        <span class="badge">1건</span>
+      </h2>
+      <div class="cards">
+        
+      <article class="card">
+        <a class="card-title" href="https://example.com/article/1" target="_blank" rel="noopener noreferrer">[테스트] 개인정보 보호법 개정안 국회 통과</a>
+        <div class="card-meta">
+          <span class="source">연합뉴스</span>
+          <span class="date">2026-04-25 09:30</span>
+        </div>
+        <p class="description">개인정보 보호법 개정안이 국회 본회의를 통과했다. 이번 개정으로 ...</p>
+      </article>
+      </div>
+    </section>
+
+    <section class="keyword-section" id="kw-정보보안">
+      <h2 class="section-title">
+        <span class="icon">🛡</span>
+        정보보안
+        <span class="badge">0건</span>
+      </h2>
+      <div class="cards">
+        <p class="empty">수집된 기사가 없습니다.</p>
+      </div>
+    </section>
+
+    <section class="keyword-section" id="kw-해킹">
+      <h2 class="section-title">
+        <span class="icon">⚠️</span>
+        해킹
+        <span class="badge">0건</span>
+      </h2>
+      <div class="cards">
+        <p class="empty">수집된 기사가 없습니다.</p>
+      </div>
+    </section>
+
+    <section class="keyword-section" id="kw-삼성서울병원">
+      <h2 class="section-title">
+        <span class="icon">🏥</span>
+        삼성서울병원
+        <span class="badge">0건</span>
+      </h2>
+      <div class="cards">
+        <p class="empty">수집된 기사가 없습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    마지막 업데이트: 2026-04-26 09:33:37 KST
+  </footer>
+</body>
+</html>
