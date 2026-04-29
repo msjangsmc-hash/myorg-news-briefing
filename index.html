@@ -5,349 +5,547 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
   <title>뉴스 브리핑 — 2026-04-29</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
   <style>
-    /* ── 변수 ── */
+    /* ── Wanted Design System tokens ── */
     :root {
-      --header-height: 57px;
-      --bg: #f8f9fa;
-      --surface: #ffffff;
-      --border: #e0e0e0;
-      --text: #212529;
-      --text-muted: #6c757d;
-      --accent: #0d6efd;
-      --accent-hover: #0b5ed7;
-      --badge-bg: #e9ecef;
-      --badge-text: #495057;
-      --shadow: 0 1px 4px rgba(0,0,0,0.08);
-      --radius: 8px;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #121212;
-        --surface: #1e1e1e;
-        --border: #333;
-        --text: #e0e0e0;
-        --text-muted: #9e9e9e;
-        --accent: #4dabf7;
-        --accent-hover: #74c0fc;
-        --badge-bg: #2c2c2c;
-        --badge-text: #adb5bd;
-        --shadow: 0 1px 4px rgba(0,0,0,0.4);
-      }
+      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      /* brand */
+      --blue-800: #0066FF;
+      --blue-100: #EAF2FE;
+      --blue-50:  #F7FBFF;
+      /* neutral */
+      --neutral-50:   #F7F7F8;
+      --neutral-200:  #EAEBEC;
+      --neutral-300:  #E1E2E4;
+      --neutral-900:  #70737C;
+      --neutral-1800: #171719;
+      /* semantic */
+      --bg-primary:   #FFFFFF;
+      --bg-neutral:   #F7F7F8;
+      --fg-primary:   rgba(46,47,51,0.88);
+      --fg-secondary: rgba(46,47,51,0.61);
+      --fg-tertiary:  rgba(46,47,51,0.43);
+      --line-normal:  rgba(112,115,124,0.22);
+      --line-strong:  rgba(112,115,124,0.40);
+      /* shadow */
+      --shadow-subtle:    0 1px 2px rgba(23,23,23,0.06);
+      --shadow-normal:    0 1px 4px rgba(23,23,23,0.07), 0 0 1px rgba(23,23,23,0.10);
+      /* radius */
+      --radius-8:  8px;
+      --radius-12: 12px;
+      --radius-16: 16px;
+      --radius-24: 24px;
+      --radius-full: 9999px;
+      /* header */
+      --header-h: 60px;
+      --nav-h: 52px;
     }
 
     /* ── 리셋 ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
-                   "Noto Sans KR", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: var(--font-sans);
+      background: var(--bg-neutral);
+      color: var(--fg-primary);
       font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
+    a { color: inherit; text-decoration: none; }
 
     /* ── 헤더 ── */
-    header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 16px 20px;
+    .site-header {
+      height: var(--header-h);
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--line-normal);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow);
+      box-shadow: var(--shadow-subtle);
     }
     .header-inner {
-      max-width: 900px;
+      max-width: 1280px;
       margin: 0 auto;
+      padding: 0 32px;
+      height: 100%;
       display: flex;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
+      gap: 16px;
     }
-    .header-title { font-size: 1.1rem; font-weight: 700; flex: 1; }
-    .header-meta { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; }
-    .total-badge {
-      background: var(--accent);
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--fg-primary);
+      letter-spacing: -0.02em;
+    }
+    .header-logo svg { color: var(--blue-800); }
+    .header-date {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--fg-secondary);
+    }
+    .header-count {
+      margin-left: auto;
+      background: var(--blue-800);
       color: #fff;
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 12px;
+      font-size: 12px;
       font-weight: 600;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      letter-spacing: -0.01em;
     }
 
-    /* ── 네비게이션 ── */
-    nav {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 8px 20px;
+    /* ── 키워드 탭 네비 ── */
+    .kw-nav {
+      height: var(--nav-h);
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--line-normal);
       position: sticky;
-      top: var(--header-height);
+      top: var(--header-h);
       z-index: 99;
     }
     .nav-inner {
-      max-width: 900px;
+      max-width: 1280px;
       margin: 0 auto;
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .nav-link {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.85rem;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      transition: all 0.15s;
-    }
-    .nav-link:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    /* ── 메인 ── */
-    main {
-      max-width: 900px;
-      margin: 24px auto;
-      padding: 0 16px 48px;
-    }
-    /* ── 섹션 ── */
-    .keyword-section {
-      margin-bottom: 36px;
-      scroll-margin-top: calc(var(--header-height) + 48px);
-    }
-    .section-title {
+      padding: 0 32px;
+      height: 100%;
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 1rem;
-      font-weight: 700;
-      padding: 10px 0 8px;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 12px;
     }
-    .icon { font-size: 1.1em; }
-    .badge {
-      margin-left: auto;
-      background: var(--badge-bg);
-      color: var(--badge-text);
-      font-size: 0.75rem;
-      padding: 2px 8px;
-      border-radius: 10px;
+    .nav-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--line-normal);
+      font-size: 13px;
       font-weight: 500;
+      color: var(--fg-secondary);
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      cursor: pointer;
     }
-    .empty { color: var(--text-muted); font-size: 0.9rem; padding: 12px 0; }
+    .nav-chip svg { width: 14px; height: 14px; stroke-width: 2; }
+    .nav-chip:hover {
+      color: var(--blue-800);
+      border-color: var(--blue-800);
+      background: var(--blue-50);
+    }
 
-    /* ── 카드 ── */
-    .cards { display: flex; flex-direction: column; gap: 10px; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-      box-shadow: var(--shadow);
-      transition: box-shadow 0.15s;
+    /* ── 메인 레이아웃 ── */
+    .page-main {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
     }
-    .card:hover { box-shadow: 0 3px 10px rgba(0,0,0,0.12); }
-    .card-title {
-      display: block;
-      color: var(--accent);
-      text-decoration: none;
+
+    /* ── 섹션 ── */
+    .kw-section {
+      margin-bottom: 48px;
+      scroll-margin-top: calc(var(--header-h) + var(--nav-h) + 20px);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1.5px solid var(--line-normal);
+    }
+    .section-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--blue-100);
+      border-radius: var(--radius-8);
+      color: var(--blue-800);
+      flex-shrink: 0;
+    }
+    .section-icon svg { width: 16px; height: 16px; stroke-width: 2; }
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--fg-primary);
+      letter-spacing: -0.02em;
+    }
+    .section-badge {
+      margin-left: auto;
+      background: var(--neutral-200);
+      color: var(--fg-secondary);
+      font-size: 12px;
       font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 6px;
-      line-height: 1.4;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
     }
-    .card-title:hover { color: var(--accent-hover); text-decoration: underline; }
+    .empty {
+      font-size: 14px;
+      color: var(--fg-tertiary);
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    /* ── 카드 그리드 ── */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-primary);
+      border: 1px solid var(--line-normal);
+      border-radius: var(--radius-16);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-normal);
+      transition: box-shadow 0.15s, transform 0.15s;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .card:hover {
+      box-shadow: 0 4px 16px rgba(23,23,23,0.10), 0 0 1px rgba(23,23,23,0.10);
+      transform: translateY(-1px);
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--fg-primary);
+      line-height: 1.5;
+      letter-spacing: -0.01em;
+      transition: color 0.12s;
+    }
+    .card-title:hover { color: var(--blue-800); }
     .card-meta {
       display: flex;
-      gap: 10px;
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      align-items: center;
+      gap: 8px;
       flex-wrap: wrap;
-      margin-bottom: 6px;
     }
-    .description {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.5;
-      margin-top: 4px;
+    .meta-source {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--fg-secondary);
+    }
+    .meta-date {
+      font-size: 12px;
+      color: var(--fg-tertiary);
+      margin-left: auto;
+    }
+    .meta-badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+    }
+    .meta-badge.intl {
+      background: #EEF2FF;
+      color: #4338CA;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: var(--fg-secondary);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
 
     /* ── 푸터 ── */
-    footer {
+    .site-footer {
+      border-top: 1px solid var(--line-normal);
+      padding: 24px 32px;
       text-align: center;
-      font-size: 0.78rem;
-      color: var(--text-muted);
-      padding: 20px 16px;
-      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--fg-tertiary);
     }
 
     /* ── 반응형 ── */
-    @media (max-width: 600px) {
-      .header-title { font-size: 0.95rem; }
-      .section-title { font-size: 0.9rem; }
-      .card { padding: 12px 14px; }
+    @media (max-width: 768px) {
+      .header-inner, .nav-inner, .page-main { padding-left: 16px; padding-right: 16px; }
+      .cards { grid-template-columns: 1fr; gap: 12px; }
+      .card { padding: 16px; border-radius: var(--radius-12); }
+      .header-date { display: none; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <div class="header-inner">
-      <span class="header-title">📰 일일 뉴스 브리핑</span>
-      <span class="total-badge">총 10건</span>
-      <span class="header-meta">기준일: 2026-04-29</span>
+      <div class="header-logo">
+        <i data-lucide="newspaper"></i>
+        일일 뉴스 브리핑
+      </div>
+      <span class="header-date">2026년 4월 29일 (수)</span>
+      <span class="header-count">총 20건</span>
     </div>
   </header>
 
-  <nav aria-label="키워드 바로가기">
+  <nav class="kw-nav" aria-label="키워드 바로가기">
     <div class="nav-inner">
-      <a href="#kw-개인정보" class="nav-link">🔒 개인정보</a>
-<a href="#kw-정보보안" class="nav-link">🛡 정보보안</a>
-<a href="#kw-해킹" class="nav-link">⚠️ 해킹</a>
-<a href="#kw-삼성서울병원" class="nav-link">🏥 삼성서울병원</a>
+      <a href="#kw-개인정보" class="nav-chip" data-kw="개인정보"><i data-lucide="shield"></i><span>개인정보</span></a>
+<a href="#kw-정보보안" class="nav-chip" data-kw="정보보안"><i data-lucide="lock"></i><span>정보보안</span></a>
+<a href="#kw-해킹" class="nav-chip" data-kw="해킹"><i data-lucide="zap"></i><span>해킹</span></a>
+<a href="#kw-삼성서울병원" class="nav-chip" data-kw="삼성서울병원"><i data-lucide="building-2"></i><span>삼성서울병원</span></a>
     </div>
   </nav>
 
-  <main>
+  <main class="page-main">
     
-    <section class="keyword-section" id="kw-개인정보">
-      <h2 class="section-title">
-        <span class="icon">🔒</span>
-        개인정보
-        <span class="badge">5건</span>
-      </h2>
+    <section class="kw-section" id="kw-개인정보">
+      <div class="section-header">
+        <span class="section-icon"><i data-lucide="shield"></i></span>
+        <h2 class="section-title">개인정보</h2>
+        <span class="section-badge">5건</span>
+      </div>
       <div class="cards">
         
       <article class="card">
-        <a class="card-title" href="https://www.securityweek.com/vimeo-confirms-user-and-customer-data-breach/" target="_blank" rel="noopener noreferrer">Vimeo Confirms User and Customer Data Breach</a>
+        <a class="card-title" href="http://www.fnnews.com/news/202604292106408731" target="_blank" rel="noopener noreferrer">129만 고객 연계정보 유출…방미통위, 롯데카드에 과태료 1125만원 부과</a>
         <div class="card-meta">
-          <span class="source">SecurityWeek</span>
-          <span class="date">2026-04-29 02:11</span>
+          
+          <span class="meta-source">fnnews.com</span>
+          <span class="meta-date">2026-04-29 21:11</span>
         </div>
-        <p class="description">The ShinyHunters group is threatening to leak stolen files unless Vimeo agrees to pay a ransom.
-The post Vimeo Confirms User and Customer Data Breach appeared first on SecurityWeek.</p>
+        <p class="card-desc">연계정보란 온라인상에서 특정 개인을 식별하기 위해 주민번호를 암호화한 값으로 개인식별용 전자정보다. 이번 조치는 지난해 발생한 롯데카드의 정보유출 사고와 관련해 CI가 유출된 사실을 인지함에 따라 실시한...</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://news.google.com/rss/articles/CBMibkFVX3lxTE9PVTU0eEFiRjF5S3QzQlh3bEl6MXRkN0RqVVQxR0JqZHZ3Nnl6RS1HQ1dXUmp0eC01N1BuTThXRXgzMWZNLXlWRGFieUdEU2pOakdOTFJHZHA1MkRYa00xSjV4T2ZtQVo0RTZhV2N30gFyQVVfeXFMTVk5V0xXampWaE5OTHN4WGJsLXNOUTBFTkxUejJpYlFMWXMtYjlUZW04TWRIbGU2V3JXRFBmY2lKb2FVRjR4aHd3NWo1WXptSTRsZHZlZkgzcEdsR1I1a2U0MWZWMjRaNzRfWWEyRzZLb2Rn?oc=5" target="_blank" rel="noopener noreferrer">미국 개인정보 유출 집단소송과 시사점 - 법률신문</a>
+        <a class="card-title" href="http://www.inews24.com/view/1964723" target="_blank" rel="noopener noreferrer">방미통위, 롯데카드에 과태료 1125만원 부과 결정</a>
         <div class="card-meta">
-          <span class="source">Google News</span>
-          <span class="date">2026-04-29 07:35</span>
+          
+          <span class="meta-source">inews24.com</span>
+          <span class="meta-date">2026-04-29 19:08</span>
         </div>
-        <p class="description">미국 개인정보 유출 집단소송과 시사점  법률신문</p>
+        <p class="card-desc">연계정보란 온라인상에서 특정 개인을 식별하기 위해 주민번호를 암호화한 값으로, 개인식별용 전자정보를 말한다. 방미통위는 지난해 발생한 롯데카드 정보유출 사고와 관련해 연계정보(CI)가 유출된 사실 여부를...</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://www.donga.com/news/Politics/article/all/20260429/133830916/2" target="_blank" rel="noopener noreferrer">한미 불협화음 속… 李 “외국군 없다고 왜 방위 불안 갖나”</a>
+        <a class="card-title" href="https://biz.heraldcorp.com/article/10728752?ref=naver" target="_blank" rel="noopener noreferrer">롯데카드, CI 안전조치 위반…방통위 과태료 1125만원</a>
         <div class="card-meta">
-          <span class="source">donga.com</span>
-          <span class="date">2026-04-29 04:34</span>
+          
+          <span class="meta-source">biz.heraldcorp.com</span>
+          <span class="meta-date">2026-04-29 18:41</span>
         </div>
-        <p class="description">쿠팡 개인정보 유출에 대한 우리 당국 조사에 반발하며 미 측이 이 문제를 핵추진잠수함 도입 및 우라늄 농축 및 사용후핵연료 재처리 권한 확대 등 안보 분야 고위급 협의와 연계하는 가운데 상호 존중과 상식·원칙...</p>
+        <p class="card-desc">[방송미디어통신위원회 제공] 방송미디어통신위원회가 개인정보 유출 사고와 관련해 연계정보(CI) 안전조치 의무를 위반한 롯데카드에 과태료 1125만원을 부과했다. 당국은 주민등록번호와 연계정보 분리 보관 등 추가...</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://www.voakorea.com/a/s-korean-lawmakers-protest-u-s-interference-in-corporate-regulation-controversy-over-coupang-probe-escalates-042826/8143358.html" target="_blank" rel="noopener noreferrer">한국 의원들, 미 정치권 ‘기업 규제 연계’ 항의 서한 …쿠팡 조사 관...</a>
+        <a class="card-title" href="https://it.donga.com/108821/" target="_blank" rel="noopener noreferrer">[주간보안동향] 듀오 42만 명 개인정보 유출…과징금 11억 9700만 원 外</a>
         <div class="card-meta">
-          <span class="source">voakorea.com</span>
-          <span class="date">2026-04-29 00:52</span>
+          
+          <span class="meta-source">it.donga.com</span>
+          <span class="meta-date">2026-04-29 18:40</span>
         </div>
-        <p class="description">이번 논란은 지난해 11월 발생한 쿠팡의 개인정보 유출 사건을 계기로 시작됐습니다. 쿠팡에서 대규모 고객 개인정보 유출 사고가 발생하자 한국 정부가 강력한 조사와 함께 고액의 과징금 부과 및 경영진 형사 고발 등을...</p>
+        <p class="card-desc">듀오 42만 명 개인정보 유출…과징금 11억 9700만 원 국내 최대 결혼중개서비스 업체인 듀오정보가 해킹 공격으로 회원 42만여 명의 정보를 유출해 거액의 과징금을 물게 됐다. 개인정보보호위원회(이하 개인정보위)는...</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://www.chosun.com/politics/politics_general/2026/04/29/N7M4KCTHDNFQHCHQ6THTNIGX2A/?utm_source=naver&utm_medium=referral&utm_campaign=naver-news" target="_blank" rel="noopener noreferrer">靑안보비서관, 정동영 ‘北 구성’ 발언 수습 위해 방미</a>
+        <a class="card-title" href="https://www.sidae.com/article/2026042918340443242" target="_blank" rel="noopener noreferrer">&#x27;주민번호 연계정보&#x27; 유출 롯데카드, 1125만원 과태료 처분</a>
         <div class="card-meta">
-          <span class="source">chosun.com</span>
-          <span class="date">2026-04-29 00:50</span>
+          
+          <span class="meta-source">sidae.com</span>
+          <span class="meta-date">2026-04-29 18:35</span>
         </div>
-        <p class="description">그러나 올 들어 미국 정부가 쿠팡의 개인정보 유출 관련 조치에 불만을 표하며 ‘쿠팡에 대한 차별이 해소돼야 안보 합의 이행을 위한 고위급 외교 협의가 가능하다’는 입장을 전달해 오면서, 정부 대표단 간 협의...</p>
+        <p class="card-desc">지난해 롯데카드에서는 297만명의 개인정보가 유출되는 사고가 발생했다. 이 사고로 CI가 유출된 사실을 인지한 방미통위는 같은 해 9월부터 11월에 걸쳐 롯데카드에 대한 특별점검을 실시했다. 점검 결과 롯데카드는...</p>
       </article>
       </div>
     </section>
 
-    <section class="keyword-section" id="kw-정보보안">
-      <h2 class="section-title">
-        <span class="icon">🛡</span>
-        정보보안
-        <span class="badge">0건</span>
-      </h2>
-      <div class="cards">
-        <p class="empty">수집된 기사가 없습니다.</p>
+    <section class="kw-section" id="kw-정보보안">
+      <div class="section-header">
+        <span class="section-icon"><i data-lucide="lock"></i></span>
+        <h2 class="section-title">정보보안</h2>
+        <span class="section-badge">5건</span>
       </div>
-    </section>
-
-    <section class="keyword-section" id="kw-해킹">
-      <h2 class="section-title">
-        <span class="icon">⚠️</span>
-        해킹
-        <span class="badge">5건</span>
-      </h2>
       <div class="cards">
         
       <article class="card">
-        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/hackers-are-exploiting-a-critical-litellm-pre-auth-sqli-flaw/" target="_blank" rel="noopener noreferrer">[해외] Hackers are exploiting a critical LiteLLM pre-auth SQLi flaw</a>
+        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/github-fixes-rce-flaw-that-gave-access-to-millions-of-private-repos/" target="_blank" rel="noopener noreferrer">[해외] GitHub fixes RCE flaw that gave access to millions of private repos</a>
         <div class="card-meta">
-          <span class="source">BleepingComputer</span>
-          <span class="date">2026-04-29 06:07</span>
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">BleepingComputer</span>
+          <span class="meta-date">2026-04-29 21:41</span>
         </div>
-        <p class="description">공격자들이 오픈소스 LLM 게이트웨이 LiteLLM의 치명적 인증 전 SQL 인젝션 취약점(CVE-2026-42208)을 악용해 민감 정보를 탈취하고 있다. 이 취약점은 인증 없이 익스플로잇 가능해 즉각적인 패치가 필요하다.</p>
+        <p class="card-desc">GitHub이 수백만 개의 개인 레포지토리에 접근할 수 있는 치명적 원격 코드 실행(RCE) 취약점 CVE-2026-3854를 3월 초 패치했다. 공격자는 이 취약점을 악용해 인증 없이 비공개 저장소에 접근할 수 있었으며, 즉각적인 업데이트가 권고된다.</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/04/researchers-discover-critical-github.html" target="_blank" rel="noopener noreferrer">[해외] Researchers Discover Critical GitHub CVE-2026-3854 RCE Flaw Exploitable via Single Git Push</a>
+        <a class="card-title" href="https://www.securityweek.com/critical-github-vulnerability-exposed-millions-of-repositories/" target="_blank" rel="noopener noreferrer">[해외] Critical GitHub Vulnerability Exposed Millions of Repositories</a>
         <div class="card-meta">
-          <span class="source">The Hacker News</span>
-          <span class="date">2026-04-29 03:19</span>
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">SecurityWeek</span>
+          <span class="meta-date">2026-04-29 15:27</span>
         </div>
-        <p class="description">보안 연구자들이 GitHub.com 및 GitHub Enterprise Server에 영향을 미치는 치명적 RCE 취약점(CVE-2026-3854)을 공개했다. 인증된 사용자가 단일 git push 명령만으로 원격 코드 실행을 달성할 수 있어 수백만 개발자 환경이 위험에 노출된다.</p>
+        <p class="card-desc">RCE 취약점 CVE-2026-3854가 GitHub.com뿐 아니라 GitHub Enterprise Server에도 영향을 미치는 것으로 확인됐다. 수백만 개의 레포지토리가 노출 위험에 처했으며 보안 패치 적용이 시급하다.</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/04/critical-cve-2026-25874-leaves-hugging.html" target="_blank" rel="noopener noreferrer">[해외] Critical Unpatched Flaw Leaves Hugging Face LeRobot Open to Unauthenticated RCE</a>
+        <a class="card-title" href="https://thehackernews.com/2026/04/critical-cpanel-authentication.html" target="_blank" rel="noopener noreferrer">[해외] Critical cPanel Authentication Vulnerability Identified — Update Your Server Immediately</a>
         <div class="card-meta">
-          <span class="source">The Hacker News</span>
-          <span class="date">2026-04-28 20:18</span>
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">The Hacker News</span>
+          <span class="meta-date">2026-04-29 18:37</span>
         </div>
-        <p class="description">Hugging Face의 오픈소스 로보틱스 플랫폼 LeRobot(GitHub 스타 24,000개)에서 비인증 원격 코드 실행이 가능한 치명적 취약점이 발견됐다. 아직 패치가 없는 상태로, 해당 플랫폼을 사용하는 조직은 즉각적인 위험 평가가 필요하다.</p>
+        <p class="card-desc">cPanel이 모든 지원 버전에 영향을 미치는 인증 경로 취약점에 대한 보안 업데이트를 발표했다. 공격자는 이를 악용해 cPanel 제어판에 무단 접근할 수 있으며, 즉각적인 서버 업데이트가 요구된다.</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/04/microsoft-confirms-active-exploitation.html" target="_blank" rel="noopener noreferrer">[해외] Microsoft Confirms Active Exploitation of Windows Shell CVE-2026-32202</a>
+        <a class="card-title" href="http://www.sisunnews.co.kr/news/articleView.html?idxno=237637" target="_blank" rel="noopener noreferrer">[정책브리핑] 2026년 04월 29일 수요일 주요 정책</a>
         <div class="card-meta">
-          <span class="source">The Hacker News</span>
-          <span class="date">2026-04-28 14:50</span>
+          
+          <span class="meta-source">sisunnews.co.kr</span>
+          <span class="meta-date">2026-04-29 09:00</span>
         </div>
-        <p class="description">Microsoft가 Windows Shell 고위험 취약점(CVE-2026-32202)이 실제 환경에서 적극적으로 악용되고 있음을 공식 확인했다. 스푸핑 유형의 취약점으로 CVSS 4.3이지만 실제 공격에 사용 중임이 확인됐다.</p>
+        <p class="card-desc">구축하고 보안 취약점까지 기업 자체적으로 조치할 수 있게 하는 다양한 공급망 보안 모델과 주요성과 마련할 수 있었다. 사례집은 한국인터넷진흥원 누리집에서도 상세 내용을 확인할 수 있다. 더욱 자세한 내용은 각...</p>
       </article>
 
       <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/04/chinese-silk-typhoon-hacker-extradited.html" target="_blank" rel="noopener noreferrer">[해외] Chinese Silk Typhoon Hacker Extradited to U.S. Over COVID Research Cyberattacks</a>
+        <a class="card-title" href="https://www.newspim.com/news/view/20260429001330" target="_blank" rel="noopener noreferrer">방미통위, 롯데카드에 과태료 1125만원 부과…해커에 129만명 정보 유출</a>
         <div class="card-meta">
-          <span class="source">The Hacker News</span>
-          <span class="date">2026-04-28 16:57</span>
+          
+          <span class="meta-source">newspim.com</span>
+          <span class="meta-date">2026-04-29 18:09</span>
         </div>
-        <p class="description">중국 국가 지원 해킹 그룹 Silk Typhoon 소속으로 지목된 중국인(쉬저웨이, 34세)이 이탈리아에서 체포된 후 미국으로 인도됐다. 그는 COVID-19 연구 데이터를 표적으로 한 사이버 공격에 연루된 혐의를 받고 있다.</p>
+        <p class="card-desc">롯데카드는 연계정보 안전 처리를 위한 내부규정을 마련하지 않았고 침해사고 발생 시 대응계획도 없었다. 방통위는 안전조치 미비가 대규모 유출로 이어진 점과 위반 상태가 법 시행(2025년 5월 21일) 이후 3개월...</p>
       </article>
       </div>
     </section>
 
-    <section class="keyword-section" id="kw-삼성서울병원">
-      <h2 class="section-title">
-        <span class="icon">🏥</span>
-        삼성서울병원
-        <span class="badge">0건</span>
-      </h2>
+    <section class="kw-section" id="kw-해킹">
+      <div class="section-header">
+        <span class="section-icon"><i data-lucide="zap"></i></span>
+        <h2 class="section-title">해킹</h2>
+        <span class="section-badge">5건</span>
+      </div>
       <div class="cards">
-        <p class="empty">수집된 기사가 없습니다.</p>
+        
+      <article class="card">
+        <a class="card-title" href="https://thehackernews.com/2026/04/cisa-adds-actively-exploited.html" target="_blank" rel="noopener noreferrer">[해외] CISA Adds Actively Exploited ConnectWise and Windows Flaws to KEV</a>
+        <div class="card-meta">
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">The Hacker News</span>
+          <span class="meta-date">2026-04-29 17:46</span>
+        </div>
+        <p class="card-desc">CISA가 ConnectWise ScreenConnect와 Microsoft Windows의 보안 취약점 2건을 KEV 목록에 추가했다. 실제 악용 증거가 확인된 취약점으로, 연방기관 및 조직의 즉각적인 패치가 요구된다.</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://thehackernews.com/2026/04/litellm-cve-2026-42208-sql-injection.html" target="_blank" rel="noopener noreferrer">[해외] LiteLLM CVE-2026-42208 SQL Injection Exploited within 36 Hours of Disclosure</a>
+        <div class="card-meta">
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">The Hacker News</span>
+          <span class="meta-date">2026-04-29 14:34</span>
+        </div>
+        <p class="card-desc">LiteLLM Python 패키지의 심각한 SQL 인젝션 취약점(CVE-2026-42208)이 공개 36시간 만에 실제 공격에 악용됐다. 위협 행위자들이 신규 취약점을 매우 빠르게 무기화하는 사례로, 즉각적인 업데이트가 필요하다.</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-windows-flaw-exploited-in-zero-day-attacks/" target="_blank" rel="noopener noreferrer">[해외] CISA orders feds to patch Windows flaw exploited as zero-day</a>
+        <div class="card-meta">
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">BleepingComputer</span>
+          <span class="meta-date">2026-04-29 19:29</span>
+        </div>
+        <p class="card-desc">CISA가 제로데이 공격에 악용된 Windows 취약점에 대해 연방기관에 시스템 보안 조치를 명령했다. 해당 취약점은 이미 실제 공격에 활용되고 있어 긴급 패치가 요구된다.</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/broken-vect-20-ransomware-acts-as-a-data-wiper-for-large-files/" target="_blank" rel="noopener noreferrer">[해외] Broken VECT 2.0 ransomware acts as a data wiper for large files</a>
+        <div class="card-meta">
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">BleepingComputer</span>
+          <span class="meta-date">2026-04-29 06:25</span>
+        </div>
+        <p class="card-desc">VECT 2.0 랜섬웨어가 암호화 논스 처리 오류로 인해 대용량 파일을 암호화하지 않고 영구 삭제하는 문제가 발견됐다. 연구자들은 피해 복구 불가 위험을 경고하고 있다.</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/video-service-vimeo-confirms-anodot-breach-exposed-user-data/" target="_blank" rel="noopener noreferrer">[해외] Video service Vimeo confirms Anodot breach exposed user data</a>
+        <div class="card-meta">
+          <span class="meta-badge intl">해외</span>
+          <span class="meta-source">BleepingComputer</span>
+          <span class="meta-date">2026-04-29 04:04</span>
+        </div>
+        <p class="card-desc">동영상 서비스 Vimeo가 데이터 이상 탐지 업체 Anodot의 침해 사고로 인해 일부 사용자 데이터가 무단 접근됐다고 공개했다. 서드파티 공급업체 침해가 고객사 데이터 유출로 이어진 사례다.</p>
+      </article>
+      </div>
+    </section>
+
+    <section class="kw-section" id="kw-삼성서울병원">
+      <div class="section-header">
+        <span class="section-icon"><i data-lucide="building-2"></i></span>
+        <h2 class="section-title">삼성서울병원</h2>
+        <span class="section-badge">5건</span>
+      </div>
+      <div class="cards">
+        
+      <article class="card">
+        <a class="card-title" href="https://news.google.com/rss/articles/CBMiZEFVX3lxTE03cnVYSGtSM2pyejNCZklNNWY4WjR2QlIxVXVZbUs4N0hOczZvSS1relk2aXNIbTUxV0JOdWgxNHdHZlh1TWhJemlQTC1TMUFpVW5HcDZwcmhTVGlDN2k2dF9odFQ?oc=5" target="_blank" rel="noopener noreferrer">삼성서울병원-인성메디칼, 국내 최초 ‘심폐용 산화기’ 식약처 허가 - 메디포뉴스</a>
+        <div class="card-meta">
+          
+          <span class="meta-source">Google News</span>
+          <span class="meta-date">2026-04-29 19:59</span>
+        </div>
+        <p class="card-desc">삼성서울병원-인성메디칼, 국내 최초 ‘심폐용 산화기’ 식약처 허가  메디포뉴스</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://news.google.com/rss/articles/CBMiWkFVX3lxTE5ldXRfdGo3QmphQmlBLVl3Mk5rNlEwUVFCMHdYckFRMlNsem4zNWJMVWpkZzd6cW45ZEdiWEhrcDVKTXp3cE1MZTNXVW0xTkdlWFRlNGcyNmNhd9IBXkFVX3lxTE52Mjc4alBQN1ZoNXFISEtlRXNNRE9CdUtSTTRaX3VqNFlmbjV3a2dJX1RKenZEeXFuZmZGUWMyVS1sNUxWc2UxNnFSbkdmQU5WVHcwLXZ5UzZQVkV3dmc?oc=5" target="_blank" rel="noopener noreferrer">삼성서울병원, 국산 심폐용 산화기 국내 최초로 허가 - 파이낸셜뉴스</a>
+        <div class="card-meta">
+          
+          <span class="meta-source">Google News</span>
+          <span class="meta-date">2026-04-29 08:38</span>
+        </div>
+        <p class="card-desc">삼성서울병원, 국산 심폐용 산화기 국내 최초로 허가  파이낸셜뉴스</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://news.google.com/rss/articles/CBMicEFVX3lxTE5HLW5WMkc2UUktbHBqV0JYT2REOEdnRnYyenNhRzh6YksyMVhsT29rUjhUbjVaM3NaamJHUHFIaHg5VzJVRklDNTlxb0lKZ01wZng4ZkgwemhwTktXeEx6ZnA3VGhoWVZ5YmxJVkdCQ3PSAXRBVV95cUxNUTJUTGt4NnYwU3h3MVFXTm83RldMWlpfX1EwSHB2TGtiMGh6WVotdS1yNzFEWXZzTGhYS3RrNGdXNXl3OXBiZ0RkYnNZMEVlQTlMRW5SZ19wQkh3TXJELVFESDVHUTlzU2pGLTBfT0tHUWo1bg?oc=5" target="_blank" rel="noopener noreferrer">‘수입 의존’ 탈출 신호탄···삼성서울병원, ‘심폐용 산화기’ 국내 첫 허가 - 이뉴스투데이</a>
+        <div class="card-meta">
+          
+          <span class="meta-source">Google News</span>
+          <span class="meta-date">2026-04-29 10:20</span>
+        </div>
+        <p class="card-desc">‘수입 의존’ 탈출 신호탄···삼성서울병원, ‘심폐용 산화기’ 국내 첫 허가  이뉴스투데이</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://news.google.com/rss/articles/CBMiU0FVX3lxTFBTTzRWdUdMRkZrdHpPYjB2cWJ6UkViRTVtaEd2cDlDTk50TThpM2NSUDNnaV91angtbE5BZ2xvQlFfNEd5NURFQTRwRlFuWkwzMzQw?oc=5" target="_blank" rel="noopener noreferrer">국산 심폐용 산화기 첫 허가…삼성서울병원 &quot;수입 의존 탈피&quot; - 네이트</a>
+        <div class="card-meta">
+          
+          <span class="meta-source">Google News</span>
+          <span class="meta-date">2026-04-29 09:20</span>
+        </div>
+        <p class="card-desc">국산 심폐용 산화기 첫 허가…삼성서울병원 &quot;수입 의존 탈피&quot;  네이트</p>
+      </article>
+
+      <article class="card">
+        <a class="card-title" href="https://health.chosun.com/site/data/html_dir/2026/04/29/2026042903857.html" target="_blank" rel="noopener noreferrer">몸집 커진 ‘빅3’… 의료수익 ‘연 8조 시대’</a>
+        <div class="card-meta">
+          
+          <span class="meta-source">health.chosun.com</span>
+          <span class="meta-date">2026-04-29 17:12</span>
+        </div>
+        <p class="card-desc">29일 본지는 한국보건산업진흥원 공시를 바탕으로 서울대병원·세브란스병원·서울아산병원·삼성서울병원·서울성모병원 등 이른바 빅5 병원 최근 5년간(2020~2024년) 손익계산서를 분석했다. 덩치 키우는...</p>
+      </article>
       </div>
     </section>
   </main>
 
-  <footer>
-    마지막 업데이트: 2026-04-29 08:26:30 KST
+  <footer class="site-footer">
+    마지막 업데이트: 2026-04-29 21:59 KST
   </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
