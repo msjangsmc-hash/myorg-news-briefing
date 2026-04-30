@@ -4,41 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>뉴스 브리핑 — 2026-04-30</title>
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <title>뉴스 브리핑 — 2026-04-29</title>
   <style>
-    /* ── Wanted Design System tokens ── */
+    /* ── Supabase Design System tokens ── */
     :root {
-      --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --font-sans: "Circular", "Pretendard", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --font-mono: "Source Code Pro", "Menlo", monospace;
       /* brand */
-      --blue-800: #0066FF;
-      --blue-100: #EAF2FE;
-      --blue-50:  #F7FBFF;
-      /* neutral */
-      --neutral-50:   #F7F7F8;
-      --neutral-200:  #EAEBEC;
-      --neutral-300:  #E1E2E4;
-      --neutral-900:  #70737C;
-      --neutral-1800: #171719;
-      /* semantic */
-      --bg-primary:   #FFFFFF;
-      --bg-neutral:   #F7F7F8;
-      --fg-primary:   rgba(46,47,51,0.88);
-      --fg-secondary: rgba(46,47,51,0.61);
-      --fg-tertiary:  rgba(46,47,51,0.43);
-      --line-normal:  rgba(112,115,124,0.22);
-      --line-strong:  rgba(112,115,124,0.40);
-      /* shadow */
-      --shadow-subtle:    0 1px 2px rgba(23,23,23,0.06);
-      --shadow-normal:    0 1px 4px rgba(23,23,23,0.07), 0 0 1px rgba(23,23,23,0.10);
+      --green:        #3ecf8e;
+      --green-link:   #00c573;
+      --green-border: rgba(62, 207, 142, 0.3);
+      /* neutral scale */
+      --bg-page:      #171717;
+      --bg-deep:      #0f0f0f;
+      --border-subtle: #242424;
+      --border-std:    #2e2e2e;
+      --border-strong: #363636;
+      --border-alt:    #393939;
+      --text-muted:    #898989;
+      --text-secondary:#b4b4b4;
+      --text-primary:  #fafafa;
+      /* overlay */
+      --glass:        rgba(41, 41, 41, 0.84);
       /* radius */
-      --radius-8:  8px;
-      --radius-12: 12px;
-      --radius-16: 16px;
-      --radius-24: 24px;
+      --radius-6:   6px;
+      --radius-8:   8px;
+      --radius-12:  12px;
+      --radius-16:  16px;
       --radius-full: 9999px;
-      /* header */
+      /* layout */
       --header-h: 60px;
       --nav-h: 52px;
     }
@@ -48,10 +42,10 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
-      background: var(--bg-neutral);
-      color: var(--fg-primary);
-      font-size: 15px;
-      line-height: 1.6;
+      background: var(--bg-page);
+      color: var(--text-primary);
+      font-size: 16px;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
@@ -59,12 +53,11 @@
     /* ── 헤더 ── */
     .site-header {
       height: var(--header-h);
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--line-normal);
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--border-std);
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: var(--shadow-subtle);
     }
     .header-inner {
       max-width: 1280px;
@@ -80,32 +73,32 @@
       align-items: center;
       gap: 8px;
       font-size: 17px;
-      font-weight: 700;
-      color: var(--fg-primary);
-      letter-spacing: -0.02em;
-    }
-    .header-logo svg { color: var(--blue-800); }
-    .header-date {
-      font-size: 13px;
       font-weight: 500;
-      color: var(--fg-secondary);
+      color: var(--text-primary);
+    }
+    .header-logo svg { color: var(--green); }
+    .header-date {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--text-muted);
     }
     .header-count {
       margin-left: auto;
-      background: var(--blue-800);
-      color: #fff;
+      background: var(--bg-deep);
+      color: var(--text-primary);
       font-size: 12px;
-      font-weight: 600;
-      padding: 4px 12px;
+      font-weight: 500;
+      padding: 4px 14px;
       border-radius: var(--radius-full);
-      letter-spacing: -0.01em;
+      border: 1px solid var(--green-border);
+      color: var(--green);
     }
 
     /* ── 키워드 탭 네비 ── */
     .kw-nav {
       height: var(--nav-h);
-      background: var(--bg-primary);
-      border-bottom: 1px solid var(--line-normal);
+      background: var(--bg-deep);
+      border-bottom: 1px solid var(--border-std);
       position: sticky;
       top: var(--header-h);
       z-index: 99;
@@ -125,39 +118,38 @@
       gap: 6px;
       padding: 6px 14px;
       border-radius: var(--radius-full);
-      border: 1px solid var(--line-normal);
-      font-size: 13px;
+      border: 1px solid var(--border-std);
+      font-size: 14px;
       font-weight: 500;
-      color: var(--fg-secondary);
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      color: var(--text-secondary);
+      transition: color 0.15s, border-color 0.15s;
       cursor: pointer;
     }
-    .nav-chip svg { width: 14px; height: 14px; stroke-width: 2; }
+    .nav-chip svg { width: 14px; height: 14px; stroke-width: 1.5; }
     .nav-chip:hover {
-      color: var(--blue-800);
-      border-color: var(--blue-800);
-      background: var(--blue-50);
+      color: var(--green-link);
+      border-color: var(--green-border);
     }
 
     /* ── 메인 레이아웃 ── */
     .page-main {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 40px 32px 80px;
+      padding: 48px 32px 96px;
     }
 
     /* ── 섹션 ── */
     .kw-section {
-      margin-bottom: 48px;
+      margin-bottom: 64px;
       scroll-margin-top: calc(var(--header-h) + var(--nav-h) + 20px);
     }
     .section-header {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 16px;
-      padding-bottom: 12px;
-      border-bottom: 1.5px solid var(--line-normal);
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-subtle);
     }
     .section-icon {
       display: flex;
@@ -165,31 +157,36 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      background: var(--blue-100);
+      background: var(--bg-deep);
       border-radius: var(--radius-8);
-      color: var(--blue-800);
+      border: 1px solid var(--green-border);
+      color: var(--green);
       flex-shrink: 0;
     }
-    .section-icon svg { width: 16px; height: 16px; stroke-width: 2; }
+    .section-icon svg { width: 16px; height: 16px; stroke-width: 1.5; }
     .section-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--fg-primary);
-      letter-spacing: -0.02em;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--text-primary);
+      letter-spacing: -0.16px;
     }
     .section-badge {
       margin-left: auto;
-      background: var(--neutral-200);
-      color: var(--fg-secondary);
+      background: var(--bg-deep);
+      color: var(--text-muted);
       font-size: 12px;
-      font-weight: 600;
+      font-weight: 500;
       padding: 3px 10px;
       border-radius: var(--radius-full);
+      border: 1px solid var(--border-std);
+      font-family: var(--font-mono);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
     .empty {
       font-size: 14px;
-      color: var(--fg-tertiary);
-      padding: 24px 0;
+      color: var(--text-muted);
+      padding: 32px 0;
       text-align: center;
     }
 
@@ -200,29 +197,26 @@
       gap: 16px;
     }
     .card {
-      background: var(--bg-primary);
-      border: 1px solid var(--line-normal);
-      border-radius: var(--radius-16);
+      background: var(--bg-page);
+      border: 1px solid var(--border-std);
+      border-radius: var(--radius-8);
       padding: 20px 24px;
-      box-shadow: var(--shadow-normal);
-      transition: box-shadow 0.15s, transform 0.15s;
+      transition: border-color 0.15s;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
     .card:hover {
-      box-shadow: 0 4px 16px rgba(23,23,23,0.10), 0 0 1px rgba(23,23,23,0.10);
-      transform: translateY(-1px);
+      border-color: var(--border-strong);
     }
     .card-title {
       font-size: 15px;
-      font-weight: 600;
-      color: var(--fg-primary);
+      font-weight: 400;
+      color: var(--text-primary);
       line-height: 1.5;
-      letter-spacing: -0.01em;
       transition: color 0.12s;
     }
-    .card-title:hover { color: var(--blue-800); }
+    .card-title:hover { color: var(--green-link); }
     .card-meta {
       display: flex;
       align-items: center;
@@ -231,27 +225,31 @@
     }
     .meta-source {
       font-size: 12px;
-      font-weight: 600;
-      color: var(--fg-secondary);
+      font-weight: 500;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
     .meta-date {
       font-size: 12px;
-      color: var(--fg-tertiary);
+      color: var(--text-muted);
       margin-left: auto;
     }
     .meta-badge {
       font-size: 11px;
-      font-weight: 600;
-      padding: 2px 7px;
+      font-weight: 500;
+      padding: 2px 8px;
       border-radius: var(--radius-full);
     }
     .meta-badge.intl {
-      background: #EEF2FF;
-      color: #4338CA;
+      background: var(--bg-deep);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-std);
     }
     .card-desc {
-      font-size: 13px;
-      color: var(--fg-secondary);
+      font-size: 14px;
+      color: var(--text-secondary);
       line-height: 1.6;
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -261,35 +259,39 @@
 
     /* ── 푸터 ── */
     .site-footer {
-      border-top: 1px solid var(--line-normal);
+      border-top: 1px solid var(--border-subtle);
       padding: 24px 32px;
       text-align: center;
       font-size: 12px;
-      color: var(--fg-tertiary);
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
     }
 
     /* ── 반응형 ── */
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       .header-inner, .nav-inner, .page-main { padding-left: 16px; padding-right: 16px; }
       .cards { grid-template-columns: 1fr; gap: 12px; }
-      .card { padding: 16px; border-radius: var(--radius-12); }
+      .card { padding: 16px; }
       .header-date { display: none; }
+      .page-main { padding-top: 32px; padding-bottom: 64px; }
     }
   </style>
 </head>
 <body>
   <!-- Password Gate -->
-  <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:var(--bg-neutral);display:flex;align-items:center;justify-content:center;">
-    <div style="background:var(--bg-primary);border:1px solid var(--line-normal);border-radius:var(--radius-16);box-shadow:var(--shadow-normal);padding:40px 48px;width:100%;max-width:380px;display:flex;flex-direction:column;gap:20px;text-align:center;">
-      <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:17px;font-weight:700;color:var(--fg-primary);">
-        <i data-lucide="lock" style="width:20px;height:20px;color:var(--blue-800);"></i>
+  <div id="pw-gate" style="position:fixed;inset:0;z-index:9999;background:#171717;display:flex;align-items:center;justify-content:center;">
+    <div style="background:#0f0f0f;border:1px solid #2e2e2e;border-radius:16px;padding:40px 48px;width:100%;max-width:380px;display:flex;flex-direction:column;gap:20px;text-align:center;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:16px;font-weight:400;color:#fafafa;">
+        <i data-lucide="lock" style="width:20px;height:20px;color:#3ecf8e;"></i>
         뉴스 브리핑
       </div>
       <input id="pw-input" type="password" placeholder="비밀번호" autocomplete="current-password"
-        style="border:1px solid var(--line-strong);border-radius:var(--radius-8);padding:12px 16px;font-size:15px;font-family:var(--font-sans);background:var(--bg-neutral);color:var(--fg-primary);outline:none;width:100%;"
+        style="border:1px solid #363636;border-radius:6px;padding:12px 16px;font-size:15px;font-family:inherit;background:#171717;color:#fafafa;outline:none;width:100%;"
       />
-      <button id="pw-btn" style="background:var(--blue-800);color:#fff;border:none;border-radius:var(--radius-8);padding:12px;font-size:15px;font-weight:600;font-family:var(--font-sans);cursor:pointer;width:100%;">확인</button>
-      <p id="pw-err" style="font-size:13px;color:#DC2626;display:none;">비밀번호가 올바르지 않습니다.</p>
+      <button id="pw-btn" style="background:#0f0f0f;color:#fafafa;border:1px solid #fafafa;border-radius:9999px;padding:10px 32px;font-size:14px;font-weight:500;font-family:inherit;cursor:pointer;width:100%;transition:opacity 0.15s;" onmouseover="this.style.opacity=0.8" onmouseout="this.style.opacity=1">확인</button>
+      <p id="pw-err" style="font-size:13px;color:#ff6369;display:none;">비밀번호가 올바르지 않습니다.</p>
     </div>
   </div>
   <div id="pw-content" style="display:none;">
@@ -299,8 +301,8 @@
         <i data-lucide="newspaper"></i>
         일일 뉴스 브리핑
       </div>
-      <span class="header-date">2026년 4월 30일 (목)</span>
-      <span class="header-count">총 4건</span>
+      <span class="header-date">2026년 4월 29일 (수)</span>
+      <span class="header-count">총 1건</span>
     </div>
   </header>
 
@@ -319,28 +321,18 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="shield"></i></span>
         <h2 class="section-title">개인정보</h2>
-        <span class="section-badge">2건</span>
+        <span class="section-badge">1건</span>
       </div>
       <div class="cards">
         
       <article class="card">
-        <a class="card-title" href="https://www.gasnews.com/news/articleView.html?idxno=124957" target="_blank" rel="noopener noreferrer">가스공사 &#x27;2025년 공공기관 개인정보 보호수준&#x27; 최고 등급 달성</a>
+        <a class="card-title" href="https://example.com/article/1" target="_blank" rel="noopener noreferrer">[테스트] 개인정보 보호법 개정안 국회 통과</a>
         <div class="card-meta">
           
-          <span class="meta-source">gasnews.com</span>
-          <span class="meta-date">2026-04-30 09:04</span>
+          <span class="meta-source">연합뉴스</span>
+          <span class="meta-date">2026-04-25 09:30</span>
         </div>
-        <p class="card-desc">개인정보 보호수준 평가는 공공기관의 개인정보 보호정책과 관리 수준, 안전조치 이행 여부, 개인정보 침해 예방 활동 등을 종합적으로 평가하는 제도다. 중앙부처, 지방자치단체 및 공기업 등 1,442개 기관이 참여한 이번...</p>
-      </article>
-
-      <article class="card">
-        <a class="card-title" href="https://news.google.com/rss/articles/CBMia0FVX3lxTFBObnEtR005d0tMZC1QYTJKWk9mckpvLUowNWxKWFdZRDNibjNfSmdFT3ZjcmNGNVBTTmlMZUVBVGx4dFE3OFVJSWkyMFBhR1dLYjNZbTlqbVJIcHo1UDVSOXhVLWNFbFY1N0hJ0gFvQVVfeXFMT0NWM1FFOUVTQmdqeW15QTZCUVYzVWFZeUVZcFBHbnhJXzdTTHp2NUdZVU95WnhxbjBFdGxZRGU3NFZBclNVX3pLYXBFQlJBU0pZenpOR2VPeDB3MlMxTGZ3VnktUW1CUFZFZk5CSGV3?oc=5" target="_blank" rel="noopener noreferrer">김승원 의원, &#x27;PbD 인증제&#x27; 포함 개인정보 보호법 개정안 대표발의 - 한스경제</a>
-        <div class="card-meta">
-          
-          <span class="meta-source">Google News</span>
-          <span class="meta-date">2026-04-30 09:04</span>
-        </div>
-        <p class="card-desc">김승원 의원, &#x27;PbD 인증제&#x27; 포함 개인정보 보호법 개정안 대표발의  한스경제</p>
+        <p class="card-desc">개인정보 보호법 개정안이 국회 본회의를 통과했다. 이번 개정으로 ...</p>
       </article>
       </div>
     </section>
@@ -360,19 +352,10 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="zap"></i></span>
         <h2 class="section-title">해킹</h2>
-        <span class="section-badge">1건</span>
+        <span class="section-badge">0건</span>
       </div>
       <div class="cards">
-        
-      <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/04/webinar-how-to-automate-exposure.html" target="_blank" rel="noopener noreferrer">[해외] Webinar: How to Automate Exposure Validation to Match the Speed of AI Attacks</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">The Hacker News</span>
-          <span class="meta-date">2026-04-29 21:02</span>
-        </div>
-        <p class="card-desc">2026년 2월 위협 행위자들이 커스텀 AI를 이용해 킬체인을 자동화하는 공격 전환이 포착됐다. 자율 에이전트가 Active Directory를 매핑하고 수분 내 Domain Admin 자격증명을 탈취하는 수준으로 고도화됐다. 대부분의 방어 워크플로우가 이 속도를 따라가지 못하는 것이 핵심 문제로 지적된다.</p>
-      </article>
+        <p class="empty">수집된 기사가 없습니다.</p>
       </div>
     </section>
 
@@ -380,25 +363,16 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="building-2"></i></span>
         <h2 class="section-title">삼성서울병원</h2>
-        <span class="section-badge">1건</span>
+        <span class="section-badge">0건</span>
       </div>
       <div class="cards">
-        
-      <article class="card">
-        <a class="card-title" href="https://www.munhwa.com/article/11586113?ref=naver" target="_blank" rel="noopener noreferrer">진료결과·일정 실시간 확인… 삼성서울병원 ‘스마트 병실’</a>
-        <div class="card-meta">
-          
-          <span class="meta-source">munhwa.com</span>
-          <span class="meta-date">2026-04-30 09:09</span>
-        </div>
-        <p class="card-desc">삼성서울병원은 최근 인공지능(AI) 기술에 기반한 ‘스마트병실’(사진)을 도입하고, 첨단 지능형 병원으로의 전환에 속도를 내고 있다. 30일 삼성서울병원에 따르면 이번에 개소한 스마트병실은 심장뇌혈관병원 산하...</p>
-      </article>
+        <p class="empty">수집된 기사가 없습니다.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    마지막 업데이트: 2026-04-30 09:10 KST
+    마지막 업데이트: 2026-04-30 09:25 KST
   </footer>
   </div><!-- /pw-content -->
 
