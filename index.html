@@ -121,7 +121,9 @@
     .nav-chip {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
+      flex: 1;
       padding: 5px 14px;
       border-radius: var(--r-md);
       border: 1px solid var(--border);
@@ -318,7 +320,7 @@
         일일 뉴스 브리핑
       </div>
       <span class="header-date">2026년 4월 30일 (목)</span>
-      <span class="header-count">총 14건</span>
+      <span class="header-count">총 13건</span>
     </div>
   </header>
 
@@ -348,7 +350,7 @@
           <span class="meta-source">SecurityWeek</span>
           <span class="meta-date">2026-04-29 02:11</span>
         </div>
-        <p class="card-desc">해킹 그룹 ShinyHunters가 Vimeo의 사용자 및 고객 데이터를 탈취했으며, 몸값을 지불하지 않으면 데이터를 공개하겠다고 협박하고 있다. Vimeo는 데이터 침해 사실을 공식 확인했다.</p>
+        <p class="card-desc">해킹 그룹 ShinyHunters가 Vimeo의 사용자 및 고객 데이터를 탈취하고 랜섬 미지불 시 공개를 협박하고 있다. Vimeo는 데이터 침해를 공식 확인했다.</p>
       </article>
 
       <article class="card">
@@ -388,7 +390,7 @@
           <span class="meta-source">BleepingComputer</span>
           <span class="meta-date">2026-04-29 21:41</span>
         </div>
-        <p class="card-desc">GitHub이 3월 초 CVE-2026-3854(원격코드실행) 취약점을 패치했다. 이 취약점은 공격자가 수백만 개의 프라이빗 저장소에 접근할 수 있게 하는 치명적 결함이었다. GitHub.com 및 GitHub Enterprise Server 모두 영향을 받았다.</p>
+        <p class="card-desc">GitHub이 수백만 개 비공개 저장소에 접근을 허용할 수 있었던 원격코드실행(RCE) 취약점 CVE-2026-3854를 3월 초 패치했다. 공격자가 이 취약점을 악용했다면 민감한 코드 및 자격증명 탈취가 가능했다.</p>
       </article>
 
       <article class="card">
@@ -398,7 +400,7 @@
           <span class="meta-source">SecurityWeek</span>
           <span class="meta-date">2026-04-29 15:27</span>
         </div>
-        <p class="card-desc">CVE-2026-3854 RCE 취약점이 GitHub.com뿐 아니라 GitHub Enterprise Server에도 영향을 미치는 것으로 확인됐다. 온프레미스 GitHub 환경을 운영 중인 조직은 즉시 패치 적용이 필요하다.</p>
+        <p class="card-desc">CVE-2026-3854 RCE 취약점이 GitHub.com뿐 아니라 GitHub Enterprise Server에도 영향을 미치는 것으로 확인됐다. 엔터프라이즈 환경 자체 호스팅 시 즉각적인 업데이트 검토가 필요하다.</p>
       </article>
 
       <article class="card">
@@ -408,7 +410,7 @@
           <span class="meta-source">The Hacker News</span>
           <span class="meta-date">2026-04-29 18:37</span>
         </div>
-        <p class="card-desc">cPanel이 모든 지원 버전에 영향을 미치는 인증 경로 보안 취약점에 대한 긴급 업데이트를 릴리스했다. 공격자가 해당 취약점을 통해 컨트롤 패널 소프트웨어에 무단 접근할 수 있으며, 수정 버전(11.110.0.97 등)으로 즉시 업그레이드해야 한다.</p>
+        <p class="card-desc">cPanel의 모든 지원 버전에서 공격자가 제어판 소프트웨어 접근 권한을 획득할 수 있는 인증 경로 취약점이 발견됐다. 4개 버전에 대한 보안 패치가 배포됐으며 즉시 업데이트가 권고된다.</p>
       </article>
 
       <article class="card">
@@ -438,7 +440,7 @@
           <span class="meta-source">BleepingComputer</span>
           <span class="meta-date">2026-04-29 06:07</span>
         </div>
-        <p class="card-desc">오픈소스 LLM 게이트웨이 LiteLLM에서 CVE-2026-42208(CVSS 9.3) SQL 인젝션 취약점이 발견됐다. 해커들이 해당 취약점을 악용해 민감 정보를 탈취하려는 시도가 포착됐다.</p>
+        <p class="card-desc">오픈소스 LLM 게이트웨이 LiteLLM에서 발견된 치명적 SQL 인젝션 취약점(CVE-2026-42208)이 해커들에 의해 적극 악용되고 있다. 공격자는 이를 통해 민감한 정보에 접근할 수 있으며, 해당 게이트웨이를 사용하는 조직은 즉시 패치가 필요하다.</p>
       </article>
 
       <article class="card">
@@ -448,7 +450,7 @@
           <span class="meta-source">The Hacker News</span>
           <span class="meta-date">2026-04-29 17:46</span>
         </div>
-        <p class="card-desc">CISA가 ConnectWise ScreenConnect 경로 탐색 취약점(CVE-2024-1708)과 Windows 취약점을 실제 악용 취약점 목록(KEV)에 추가했다. 두 취약점 모두 현재 실제 공격에 활용되고 있어 즉각적인 패치가 권고된다.</p>
+        <p class="card-desc">CISA가 ConnectWise ScreenConnect 경로 탐색 취약점(CVE-2024-1708)과 Windows 취약점을 KEV 목록에 추가했다. 두 취약점 모두 실제 공격에 활용 중인 것이 확인되어 즉각적인 패치 적용이 권고된다.</p>
       </article>
 
       <article class="card">
@@ -458,7 +460,7 @@
           <span class="meta-source">The Hacker News</span>
           <span class="meta-date">2026-04-29 14:34</span>
         </div>
-        <p class="card-desc">LiteLLM의 CVSS 9.3 SQL 인젝션 취약점(CVE-2026-42208)이 공개 36시간 만에 실제 공격에 악용됐다. 데이터베이스 변조가 가능한 치명적 취약점으로, 해당 패키지 사용 환경은 즉시 패치가 필요하다.</p>
+        <p class="card-desc">LiteLLM의 SQL 인젝션 취약점(CVE-2026-42208, CVSS 9.3)이 공개 후 36시간 만에 실제 공격에 악용되기 시작했다. 위협 행위자들이 신규 취약점을 즉시 무기화하는 추세를 보여주는 사례로, AI 관련 인프라 운영 기관은 즉시 패치해야 한다.</p>
       </article>
 
       <article class="card">
@@ -468,7 +470,7 @@
           <span class="meta-source">The Hacker News</span>
           <span class="meta-date">2026-04-29 03:19</span>
         </div>
-        <p class="card-desc">GitHub 및 GitHub Enterprise Server에서 인증된 사용자가 git push 한 번으로 원격 코드 실행이 가능한 심각한 취약점(CVE-2026-3854, CVSS 8.7)이 공개됐다. 저장소 push 권한만 있으면 공격 가능해 내부 개발 환경 점검이 필요하다.</p>
+        <p class="card-desc">GitHub.com 및 GitHub Enterprise Server에서 인증된 사용자가 git push 명령 하나만으로 원격 코드 실행이 가능한 치명적 취약점(CVE-2026-3854, CVSS 8.7)이 발견됐다. 저장소 push 권한을 가진 공격자가 명령어 인젝션을 통해 시스템을 장악할 수 있다.</p>
       </article>
 
       <article class="card">
@@ -487,7 +489,7 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="building-2"></i></span>
         <h2 class="section-title">삼성서울병원</h2>
-        <span class="section-badge">2건</span>
+        <span class="section-badge">1건</span>
       </div>
       <div class="cards">
         
@@ -500,22 +502,12 @@
         </div>
         <p class="card-desc">삼성서울병원은 최근 인공지능(AI) 기술에 기반한 ‘스마트병실’(사진)을 도입하고, 첨단 지능형 병원으로의 전환에 속도를 내고 있다. 30일 삼성서울병원에 따르면 이번에 개소한 스마트병실은 심장뇌혈관병원 산하...</p>
       </article>
-
-      <article class="card">
-        <a class="card-title" href="https://www.sedaily.com/article/20038624?ref=naver" target="_blank" rel="noopener noreferrer">삼성서울병원, ‘에크모’ 핵심부품 국산화 첫 성공</a>
-        <div class="card-meta">
-          
-          <span class="meta-source">sedaily.com</span>
-          <span class="meta-date">2026-04-30 07:14</span>
-        </div>
-        <p class="card-desc">삼성서울병원은 인성메디칼과 공동 개발한 심폐용 산화기 ‘ISOx’가 국산 제품 중 처음으로 식품의약품안전처의 허가를 받았다고 29일 밝혔다. 심폐용 산화기는 중증 폐렴이나 심폐 부전, 심정지 등 위급 상황에서 체내...</p>
-      </article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    마지막 업데이트: 2026-04-30 10:07 KST
+    마지막 업데이트: 2026-04-30 10:14 KST
   </footer>
   </div><!-- /pw-content -->
 
