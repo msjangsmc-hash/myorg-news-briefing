@@ -4,36 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow">
-  <title>뉴스 브리핑 — 2026-05-04</title>
+  <title>뉴스 브리핑 — 2026-05-03</title>
   <style>
-    /* ── Stripe Design System ── */
-    @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;500;700&display=swap');
+    /* ── VoiceBox Design System (magazine editorial) ── */
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
     :root {
-      --font-sans: "sohne-var", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", Arial, sans-serif;
-      --font-mono: "Source Code Pro", "SFMono-Regular", Menlo, monospace;
+      --font-display: "Archivo Black", Impact, "Arial Black", sans-serif;
+      --font-sans:    "Work Sans", -apple-system, "Segoe UI", Helvetica, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --font-mono:    "Space Mono", "Courier New", Consolas, monospace;
       /* neutral */
-      --bg:        #ffffff;
-      --surface:   #f6f9fc;
-      --heading:   #061b31;
-      --label:     #273951;
-      --body:      #64748d;
-      --border:    #e5edf5;
+      --bg:        #FAFAFA;
+      --surface:   #F5F5F5;
+      --surface-raised: #E5E5E5;
+      --heading:   #0A0A0A;
+      --label:     #525252;
+      --body:      #525252;
+      --border:    #E5E5E5;
+      --border-md: #D4D4D4;
+      --border-strong: #0A0A0A;
       /* brand */
-      --purple:    #533afd;
-      --purple-hv: #4434d4;
-      --purple-lt: #b9b9f9;
-      --dark-sect: #1c1e54;
-      /* accent (장식 전용) */
-      --ruby:      #ea2261;
-      --magenta:   #f96bee;
-      /* shadow */
-      --shadow-ambient:  rgba(23,23,23,0.06) 0px 3px 6px;
-      --shadow-standard: rgba(23,23,23,0.08) 0px 15px 35px;
-      --shadow-elevated: rgba(50,50,93,0.25) 0px 30px 45px -30px, rgba(0,0,0,0.1) 0px 18px 36px -18px;
-      /* radius */
-      --r-sm:  4px;
-      --r-md:  6px;
-      --r-lg:  8px;
+      --red:       #EF4444;
+      --red-hv:    #DC2626;
+      /* radius — all zero */
+      --r-sm:  0px;
+      --r-md:  0px;
+      --r-lg:  0px;
       /* layout */
       --header-h: 60px;
       --nav-h:    52px;
@@ -44,11 +39,10 @@
     html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
-      font-feature-settings: "ss01";
       background: var(--bg);
       color: var(--body);
       font-size: 16px;
-      line-height: 1.5;
+      line-height: 1.7;
       -webkit-font-smoothing: antialiased;
     }
     a { color: inherit; text-decoration: none; }
@@ -56,10 +50,8 @@
     /* ── 헤더 ── */
     .site-header {
       height: var(--header-h);
-      background: rgba(255,255,255,0.9);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      border-bottom: 2px solid var(--border-strong);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -77,34 +69,40 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 16px;
+      font-family: var(--font-display);
+      font-size: 18px;
       font-weight: 400;
       color: var(--heading);
-      letter-spacing: -0.26px;
-      font-feature-settings: "ss01";
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
     }
-    .header-logo svg { color: var(--purple); }
+    .header-logo svg { color: var(--red); }
     .header-date {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--body);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--label);
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .header-count {
       margin-left: auto;
-      background: var(--purple);
-      color: #ffffff;
+      background: var(--heading);
+      color: var(--bg);
       font-size: 12px;
-      font-weight: 400;
+      font-weight: 700;
       padding: 3px 10px;
-      border-radius: var(--r-sm);
-      font-feature-settings: "ss01";
+      border-radius: 0;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     /* ── 키워드 탭 네비 ── */
     .kw-nav {
       height: var(--nav-h);
       background: var(--bg);
-      border-bottom: 1px solid var(--border);
+      border-bottom: 2px solid var(--border);
       position: sticky;
       top: var(--header-h);
       z-index: 99;
@@ -125,21 +123,23 @@
       gap: 6px;
       flex: 1;
       padding: 5px 14px;
-      border-radius: var(--r-md);
-      border: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 400;
+      border-radius: 0;
+      border: 2px solid var(--border-md);
+      font-size: 12px;
+      font-weight: 700;
       color: var(--label);
       background: var(--bg);
-      font-feature-settings: "ss01";
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       transition: color 0.15s, border-color 0.15s, background 0.15s;
       cursor: pointer;
     }
     .nav-chip svg { width: 14px; height: 14px; stroke-width: 1.5; }
     .nav-chip:hover {
-      color: var(--purple);
-      border-color: var(--purple-lt);
-      background: rgba(83,58,253,0.03);
+      color: var(--red);
+      border-color: var(--red);
+      background: var(--bg);
     }
 
     /* ── 메인 레이아웃 ── */
@@ -160,7 +160,7 @@
       gap: 10px;
       margin-bottom: 20px;
       padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 3px solid var(--border-strong);
     }
     .section-icon {
       display: flex;
@@ -168,34 +168,35 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      background: rgba(83,58,253,0.06);
-      border-radius: var(--r-sm);
-      border: 1px solid var(--purple-lt);
-      color: var(--purple);
+      background: var(--red);
+      border-radius: 0;
+      color: #ffffff;
       flex-shrink: 0;
     }
     .section-icon svg { width: 16px; height: 16px; stroke-width: 1.5; }
     .section-title {
-      font-size: 22px;
-      font-weight: 300;
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 400;
       color: var(--heading);
-      letter-spacing: -0.22px;
-      font-feature-settings: "ss01";
+      letter-spacing: -0.01em;
+      text-transform: uppercase;
     }
     .section-badge {
       margin-left: auto;
       background: var(--surface);
-      color: var(--body);
-      font-size: 12px;
-      font-weight: 400;
+      color: var(--label);
+      font-size: 11px;
+      font-weight: 700;
       padding: 2px 10px;
-      border-radius: var(--r-sm);
-      border: 1px solid var(--border);
+      border-radius: 0;
+      border: 2px solid var(--border-md);
       font-family: var(--font-mono);
+      text-transform: uppercase;
     }
     .empty {
       font-size: 14px;
-      color: var(--body);
+      color: var(--label);
       padding: 32px 0;
       text-align: center;
     }
@@ -208,29 +209,27 @@
     }
     .card {
       background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--r-md);
+      border: 2px solid var(--border);
+      border-radius: 0;
       padding: 20px 24px;
-      box-shadow: var(--shadow-ambient);
-      transition: box-shadow 0.2s, border-color 0.2s;
+      box-shadow: none;
+      transition: border-color 0.15s;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
     .card:hover {
-      border-color: var(--purple-lt);
-      box-shadow: var(--shadow-elevated);
+      border-color: var(--border-strong);
     }
     .card-title {
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--heading);
       line-height: 1.5;
-      letter-spacing: -0.1px;
-      font-feature-settings: "ss01";
+      font-family: var(--font-sans);
       transition: color 0.12s;
     }
-    .card-title:hover { color: var(--purple); }
+    .card-title:hover { color: var(--red); }
     .card-meta {
       display: flex;
       align-items: center;
@@ -239,36 +238,37 @@
     }
     .meta-source {
       font-size: 11px;
-      font-weight: 500;
-      color: var(--body);
+      font-weight: 700;
+      color: var(--label);
       font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.3px;
+      letter-spacing: 0.06em;
     }
     .meta-date {
       font-size: 12px;
-      color: var(--body);
+      color: var(--label);
       margin-left: auto;
-      font-feature-settings: "tnum";
+      font-family: var(--font-mono);
     }
     .meta-badge {
       font-size: 10px;
-      font-weight: 300;
+      font-weight: 700;
       padding: 1px 6px;
-      border-radius: var(--r-sm);
-      font-feature-settings: "ss01";
+      border-radius: 0;
+      font-family: var(--font-sans);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
     .meta-badge.intl {
-      background: rgba(83,58,253,0.08);
-      color: var(--purple);
-      border: 1px solid var(--purple-lt);
+      background: var(--surface);
+      color: var(--heading);
+      border: 2px solid var(--border-md);
     }
     .card-desc {
       font-size: 14px;
-      font-weight: 300;
-      color: var(--body);
+      font-weight: 400;
+      color: var(--label);
       line-height: 1.6;
-      font-feature-settings: "ss01";
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -277,19 +277,21 @@
 
     /* ── 푸터 ── */
     .site-footer {
-      border-top: 1px solid var(--border);
+      border-top: 2px solid var(--border-strong);
       padding: 24px 32px;
       text-align: center;
       font-size: 12px;
-      color: var(--body);
+      color: var(--label);
       font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     /* ── 반응형 ── */
     @media (max-width: 640px) {
       .header-inner, .nav-inner, .page-main { padding-left: 16px; padding-right: 16px; }
       .cards { grid-template-columns: 1fr; gap: 12px; }
-      .card { padding: 16px; border-radius: var(--r-sm); }
+      .card { padding: 16px; }
       .header-date { display: none; }
       .page-main { padding-top: 32px; padding-bottom: 64px; }
       .section-title { font-size: 18px; }
@@ -303,8 +305,8 @@
         <i data-lucide="newspaper"></i>
         Jay's News Briefing
       </div>
-      <span class="header-date">2026년 5월 4일 (월)</span>
-      <span class="header-count">총 9건</span>
+      <span class="header-date">2026년 5월 3일 (일)</span>
+      <span class="header-count">총 0건</span>
     </div>
   </header>
 
@@ -323,29 +325,10 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="shield"></i></span>
         <h2 class="section-title">개인정보</h2>
-        <span class="section-badge">2건</span>
+        <span class="section-badge">0건</span>
       </div>
       <div class="cards">
-        
-      <article class="card">
-        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/instructure-confirms-data-breach-shinyhunters-claims-attack/" target="_blank" rel="noopener noreferrer">[해외] Instructure confirms data breach, ShinyHunters claims attack</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">BleepingComputer</span>
-          <span class="meta-date">2026-05-04 07:16</span>
-        </div>
-        <p class="card-desc">교육 플랫폼 기업 Instructure가 사이버 공격으로 데이터가 탈취됐음을 공식 확인했으며, ShinyHunters 갈취 조직이 공격 책임을 주장했다. 동 조직은 국내외 다수 기업을 대상으로 활동 중이어서 유사 공격 가능성에 주의가 필요하다.</p>
-      </article>
-
-      <article class="card">
-        <a class="card-title" href="https://www.ilovepc.co.kr/news/articleView.html?idxno=59037" target="_blank" rel="noopener noreferrer">[DP&#x27;s 모닝픽] 우주 데이터센터?… 스페이스X &quot;실패 가능성 더 높다&quot;</a>
-        <div class="card-meta">
-          
-          <span class="meta-source">ilovepc.co.kr</span>
-          <span class="meta-date">2026-05-02 16:18</span>
-        </div>
-        <p class="card-desc">■ 국내 최대 결혼정보업체 듀오에서 회원 42만명 넘는 개인정보가 유출됐습니다. 24일 개인정보보호위원회에 따르면 듀오의 지난해 1월 해킹으로 인해 회원 42만7000명의 이름·주민등록번호·혼인 경력·직장·체중...</p>
-      </article>
+        <p class="empty">수집된 기사가 없습니다.</p>
       </div>
     </section>
 
@@ -353,19 +336,10 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="lock"></i></span>
         <h2 class="section-title">정보보안</h2>
-        <span class="section-badge">1건</span>
+        <span class="section-badge">0건</span>
       </div>
       <div class="cards">
-        
-      <article class="card">
-        <a class="card-title" href="https://biz.chosun.com/stock/finance/2026/05/02/WOTKY5WY6BEZZAPSCP3PU2TLGA/?utm_source=naver&utm_medium=original&utm_campaign=biz" target="_blank" rel="noopener noreferrer">“장비 전부 바꿔야 하나”… ‘미토스 쇼크’에 금융권 보안 고심</a>
-        <div class="card-meta">
-          
-          <span class="meta-source">biz.chosun.com</span>
-          <span class="meta-date">2026-05-02 06:01</span>
-        </div>
-        <p class="card-desc">기존 모델 대비 코딩과 추론, 사이버 보안 성능을 끌어올리는 과정에서 이런 능력이 발견됐다. 앤스로픽이 공개한 테스트 결과에 따르면, 미토스는 27년간 발견되지 않았던 운영체제의 취약점을 찾아냈고, 자동화...</p>
-      </article>
+        <p class="empty">수집된 기사가 없습니다.</p>
       </div>
     </section>
 
@@ -373,59 +347,10 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="zap"></i></span>
         <h2 class="section-title">해킹</h2>
-        <span class="section-badge">5건</span>
+        <span class="section-badge">0건</span>
       </div>
       <div class="cards">
-        
-      <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/05/cisa-adds-actively-exploited-linux-root.html" target="_blank" rel="noopener noreferrer">[해외] CISA Adds Actively Exploited Linux Root Access Bug CVE-2026-31431 to KEV</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">The Hacker News</span>
-          <span class="meta-date">2026-05-03 15:26</span>
-        </div>
-        <p class="card-desc">CISA가 리눅스 다수 배포판에 영향을 미치는 로컬 권한상승 취약점 CVE-2026-31431(CVSS 7.8)을 KEV 목록에 추가했다. 실제 야생 악용 증거가 확인됐으며, 공격자가 이를 통해 루트 권한을 획득할 수 있다. 리눅스 운영 환경을 사용하는 의료기관은 즉각 패치 적용 여부를 검토해야 한다.</p>
-      </article>
-
-      <article class="card">
-        <a class="card-title" href="https://thehackernews.com/2026/05/two-cybersecurity-professionals-get-4.html" target="_blank" rel="noopener noreferrer">[해외] Two Cybersecurity Professionals Get 4-Year Sentences in BlackCat Ransomware Attacks</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">The Hacker News</span>
-          <span class="meta-date">2026-05-01 18:56</span>
-        </div>
-        <p class="card-desc">미 법무부가 2023년 BlackCat 랜섬웨어 공격에 가담한 보안 전문가 2명에게 각각 4년 실형을 선고했다. Ryan Goldberg와 Kevin Martin은 미국 내 다수 피해자를 대상으로 랜섬웨어를 배포한 혐의를 받았다. BlackCat은 의료기관을 포함한 주요 인프라를 광범위하게 공격한 것으로 알려진 그룹이다.</p>
-      </article>
-
-      <article class="card">
-        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/new-bluekit-phishing-service-includes-an-ai-assistant-40-templates/" target="_blank" rel="noopener noreferrer">[해외] New Bluekit phishing service includes an AI assistant, 40 templates</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">BleepingComputer</span>
-          <span class="meta-date">2026-05-01 03:58</span>
-        </div>
-        <p class="card-desc">Bluekit이라는 신종 피싱킷이 등장해 40개 이상의 템플릿과 AI 기반 캠페인 초안 생성 기능을 제공한다. 인기 서비스를 사칭하는 피싱 공격에 활용될 수 있어 이메일 보안 필터 업데이트가 권고된다.</p>
-      </article>
-
-      <article class="card">
-        <a class="card-title" href="https://www.bleepingcomputer.com/news/security/telegram-mini-apps-abused-for-crypto-scams-android-malware-delivery/" target="_blank" rel="noopener noreferrer">[해외] Telegram Mini Apps abused for crypto scams, Android malware delivery</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">BleepingComputer</span>
-          <span class="meta-date">2026-05-03 23:11</span>
-        </div>
-        <p class="card-desc">사이버 범죄자들이 텔레그램 Mini App 기능을 악용해 암호화폐 사기 및 유명 브랜드 사칭, 안드로이드 악성코드 배포를 대규모로 수행하고 있다. 모바일 기기를 통한 악성코드 감염 경로로 활용되고 있어 임직원 모바일 보안 인식 제고가 필요하다.</p>
-      </article>
-
-      <article class="card">
-        <a class="card-title" href="https://www.securityweek.com/hugging-face-clawhub-abused-for-malware-distribution/" target="_blank" rel="noopener noreferrer">[해외] Hugging Face, ClawHub Abused for Malware Distribution</a>
-        <div class="card-meta">
-          <span class="meta-badge intl">해외</span>
-          <span class="meta-source">SecurityWeek</span>
-          <span class="meta-date">2026-05-01 17:41</span>
-        </div>
-        <p class="card-desc">위협 행위자들이 Hugging Face와 ClawHub 플랫폼을 악용해 사용자를 소셜 엔지니어링으로 유도하고 악성 파일을 배포하고 있다. AI 모델·패키지 다운로드 경로로 악성코드가 유입될 수 있어 개발·운영 환경의 외부 리소스 사용 정책 점검이 필요하다.</p>
-      </article>
+        <p class="empty">수집된 기사가 없습니다.</p>
       </div>
     </section>
 
@@ -433,25 +358,16 @@
       <div class="section-header">
         <span class="section-icon"><i data-lucide="building-2"></i></span>
         <h2 class="section-title">삼성서울병원</h2>
-        <span class="section-badge">1건</span>
+        <span class="section-badge">0건</span>
       </div>
       <div class="cards">
-        
-      <article class="card">
-        <a class="card-title" href="https://www.newsis.com/view/NISX20260430_0003612710" target="_blank" rel="noopener noreferrer">&quot;크론병 걸리면 키 안 크나요?&quot;…&#x27;이 강의&#x27; 들어보세요</a>
-        <div class="card-meta">
-          
-          <span class="meta-source">newsis.com</span>
-          <span class="meta-date">2026-05-02 13:01</span>
-        </div>
-        <p class="card-desc">삼성서울병원은 오는 22일 오후 2시부터 본관 지하 1층 대강당에서 &#x27;2026 소아 염증성 장질환 건강강좌&#x27;를 개최한다고 2일 밝혔다. 소아 염증성 장질환인 크론병과 궤양성 대장염은 장기적인 관리가 필요한 만성질환이다....</p>
-      </article>
+        <p class="empty">수집된 기사가 없습니다.</p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    마지막 업데이트: 2026-05-04 10:02 KST
+    마지막 업데이트: 2026-05-04 20:50 KST
   </footer>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>lucide.createIcons();</script>
