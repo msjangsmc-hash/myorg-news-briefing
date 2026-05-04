@@ -6,39 +6,21 @@
   <meta name="robots" content="noindex, nofollow">
   <title>뉴스 브리핑 — 2026-05-03</title>
   <style>
-    /* ── NomadKit Design System (warm minimalist) ── */
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&family=DM+Mono:wght@400&display=swap');
+    /* ── RawBlock Design System (brutalism) ── */
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
     :root {
-      --font-display: "DM Serif Display", Georgia, serif;
-      --font-sans:    "DM Sans", -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      --font-mono:    "DM Mono", "Courier New", Consolas, monospace;
-      /* NomadKit palette */
-      --primary:        #D4A373;
-      --primary-hover:  #B8895A;
-      --primary-light:  rgba(212,163,115,0.12);
-      --ocean:          #0891B2;
-      --forest:         #166534;
-      --bg:             #FFFDF7;
-      --surface:        #FFFFFF;
-      --text-primary:   #2C2416;
-      --text-secondary: #6B5E4A;
-      --neutral:        #A89880;
-      --border:         #EDE8DF;
-      --border-warm:    #DDD3C4;
-      --success:        #166534;
-      --warning:        #CA8A04;
-      --error:          #DC2626;
-      /* elevation */
-      --shadow-card:  0 2px 12px rgba(44,36,22,0.06);
-      --shadow-hover: 0 8px 28px rgba(44,36,22,0.10);
-      /* radius */
-      --r-sm:   6px;
-      --r-md:   10px;
-      --r-card: 14px;
-      --r-pill: 9999px;
-      /* layout */
+      --font-display: "Archivo Black", Impact, "Arial Black", sans-serif;
+      --font-sans:    "Work Sans", -apple-system, "Segoe UI", Helvetica, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --font-mono:    "Space Mono", "Courier New", Consolas, monospace;
+      --bg:      #FFFFFF;
+      --surface: #F0F0F0;
+      --heading: #000000;
+      --label:   #000000;
+      --body:    #000000;
+      --border:  #000000;
+      --blue:    #0000FF;
       --header-h: 60px;
-      --nav-h:    50px;
+      --nav-h:    52px;
     }
 
     /* ── 리셋 ── */
@@ -47,21 +29,18 @@
     body {
       font-family: var(--font-sans);
       background: var(--bg);
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.65;
+      color: var(--body);
+      font-size: 16px;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--ocean); text-decoration: none; }
-    a:hover { color: var(--primary-hover); }
+    a { color: var(--blue); text-decoration: underline; }
 
     /* ── 헤더 ── */
     .site-header {
       height: var(--header-h);
-      background: rgba(255,253,247,0.92);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      border-bottom: 5px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -69,7 +48,7 @@
     .header-inner {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 32px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -80,33 +59,40 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-display);
-      font-size: 19px;
+      font-size: 20px;
       font-weight: 400;
-      color: var(--text-primary);
-      letter-spacing: 0.01em;
+      color: var(--heading);
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      text-decoration: none;
     }
-    .header-logo svg { color: var(--primary); }
+    .header-logo svg { color: var(--heading); }
     .header-date {
-      font-size: 13px;
-      font-weight: 400;
-      color: var(--neutral);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--label);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .header-count {
       margin-left: auto;
-      background: var(--primary);
-      color: #ffffff;
+      background: var(--heading);
+      color: var(--bg);
       font-size: 12px;
-      font-weight: 600;
-      padding: 3px 12px;
-      border-radius: var(--r-pill);
-      font-family: var(--font-sans);
+      font-weight: 700;
+      padding: 4px 12px;
+      border: 3px solid var(--border);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     /* ── 키워드 탭 네비 ── */
     .kw-nav {
       height: var(--nav-h);
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+      border-bottom: 3px solid var(--border);
       position: sticky;
       top: var(--header-h);
       z-index: 99;
@@ -114,7 +100,7 @@
     .nav-inner {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 0 28px;
+      padding: 0 32px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -124,31 +110,31 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 6px;
       flex: 1;
-      padding: 4px 12px;
-      border-radius: var(--r-pill);
-      border: 1px solid var(--border-warm);
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-secondary);
+      padding: 5px 14px;
+      border: 2px solid var(--border);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--label);
       background: var(--bg);
       font-family: var(--font-sans);
-      transition: all 0.2s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
       cursor: pointer;
+      transition: background 0.1s, color 0.1s;
     }
-    .nav-chip svg { width: 13px; height: 13px; stroke-width: 1.5; }
+    .nav-chip svg { width: 14px; height: 14px; stroke-width: 2; }
     .nav-chip:hover {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
+      background: var(--heading);
+      color: var(--bg);
     }
 
     /* ── 메인 레이아웃 ── */
     .page-main {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 48px 28px 96px;
+      padding: 40px 32px 80px;
     }
 
     /* ── 섹션 ── */
@@ -159,10 +145,10 @@
     .section-header {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       margin-bottom: 20px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--border);
+      padding-bottom: 16px;
+      border-bottom: 5px solid var(--border);
     }
     .section-icon {
       display: flex;
@@ -170,70 +156,64 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      background: var(--primary-light);
-      border: 1px solid var(--border-warm);
-      border-radius: var(--r-sm);
-      color: var(--primary);
+      background: var(--heading);
+      color: var(--bg);
       flex-shrink: 0;
     }
-    .section-icon svg { width: 16px; height: 16px; stroke-width: 1.5; }
+    .section-icon svg { width: 16px; height: 16px; stroke-width: 2; }
     .section-title {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 32px;
       font-weight: 400;
-      color: var(--text-primary);
-      letter-spacing: 0.01em;
-      line-height: 1.2;
+      color: var(--heading);
+      line-height: 1.1;
+      text-transform: uppercase;
     }
     .section-badge {
       margin-left: auto;
       background: var(--bg);
-      color: var(--neutral);
+      color: var(--label);
       font-size: 11px;
-      font-weight: 400;
+      font-weight: 700;
       padding: 2px 10px;
-      border-radius: var(--r-pill);
-      border: 1px solid var(--border-warm);
+      border: 3px solid var(--border);
       font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .empty {
-      font-size: 13px;
-      color: var(--neutral);
+      font-size: 14px;
+      color: var(--label);
       padding: 32px 0;
       text-align: center;
+      font-family: var(--font-mono);
     }
 
     /* ── 카드 그리드 ── */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 20px;
+      gap: 16px;
     }
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--r-card);
+      background: var(--bg);
+      border: 3px solid var(--border);
       padding: 24px;
-      box-shadow: var(--shadow-card);
-      transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s;
+      box-shadow: none;
+      transition: border-width 0.1s;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
-    .card:hover {
-      box-shadow: var(--shadow-hover);
-      transform: translateY(-2px);
-      border-color: var(--border-warm);
-    }
+    .card:hover { border-width: 5px; }
     .card-title {
       font-size: 15px;
-      font-weight: 500;
-      color: var(--text-primary);
+      font-weight: 600;
+      color: var(--heading);
       line-height: 1.5;
       font-family: var(--font-sans);
-      transition: color 0.15s;
     }
-    .card-title:hover { color: var(--primary-hover); cursor: pointer; }
+    .card-title:hover { text-decoration: underline; cursor: pointer; }
     .card-meta {
       display: flex;
       align-items: center;
@@ -242,34 +222,36 @@
     }
     .meta-source {
       font-size: 11px;
-      font-weight: 500;
-      color: var(--neutral);
+      font-weight: 700;
+      color: var(--label);
       font-family: var(--font-mono);
-      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .meta-date {
       font-size: 12px;
-      color: var(--neutral);
+      color: var(--label);
       margin-left: auto;
       font-family: var(--font-mono);
     }
     .meta-badge {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 2px 8px;
-      border-radius: var(--r-pill);
-      font-family: var(--font-sans);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 1px 6px;
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .meta-badge.intl {
-      background: rgba(8,145,178,0.08);
-      color: var(--ocean);
-      border: 1px solid rgba(8,145,178,0.2);
+      background: var(--bg);
+      color: var(--heading);
+      border: 2px solid var(--border);
     }
     .card-desc {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 400;
-      color: var(--text-secondary);
-      line-height: 1.65;
+      color: var(--body);
+      line-height: 1.6;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -278,13 +260,14 @@
 
     /* ── 푸터 ── */
     .site-footer {
-      border-top: 1px solid var(--border);
-      padding: 24px 28px;
+      border-top: 5px solid var(--border);
+      padding: 24px 32px;
       text-align: center;
       font-size: 12px;
-      color: var(--neutral);
+      color: var(--label);
       font-family: var(--font-mono);
-      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
 
     /* ── 반응형 ── */
@@ -294,7 +277,7 @@
       .card { padding: 16px; }
       .header-date { display: none; }
       .page-main { padding-top: 32px; padding-bottom: 64px; }
-      .section-title { font-size: 18px; }
+      .section-title { font-size: 22px; }
     }
   </style>
 </head>
@@ -367,7 +350,7 @@
   </main>
 
   <footer class="site-footer">
-    마지막 업데이트: 2026-05-04 21:09 KST
+    마지막 업데이트: 2026-05-04 21:14 KST
   </footer>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>lucide.createIcons();</script>
