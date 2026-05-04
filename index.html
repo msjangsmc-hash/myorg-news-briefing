@@ -6,38 +6,39 @@
   <meta name="robots" content="noindex, nofollow">
   <title>뉴스 브리핑 — 2026-05-03</title>
   <style>
-    /* ── Genesis Design System (editorial precision) ── */
-    @import url('https://api.fontshare.com/v2/css?f[]=general-sans@600,700&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+    /* ── NomadKit Design System (warm minimalist) ── */
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display&family=DM+Mono:wght@400&display=swap');
     :root {
-      --font-display: "General Sans", -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      --font-display: "DM Serif Display", Georgia, serif;
       --font-sans:    "DM Sans", -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
-      --font-mono:    "JetBrains Mono", "Courier New", Consolas, monospace;
-      /* colors — Genesis palette */
-      --primary:        #6366F1;
-      --primary-hover:  #4F46E5;
-      --primary-glow:   rgba(99,102,241,0.35);
-      --primary-ring:   rgba(99,102,241,0.12);
-      --bg:             #FAFAFA;
+      --font-mono:    "DM Mono", "Courier New", Consolas, monospace;
+      /* NomadKit palette */
+      --primary:        #D4A373;
+      --primary-hover:  #B8895A;
+      --primary-light:  rgba(212,163,115,0.12);
+      --ocean:          #0891B2;
+      --forest:         #166534;
+      --bg:             #FFFDF7;
       --surface:        #FFFFFF;
-      --text-primary:   #0A0A0A;
-      --text-secondary: #6B6B6B;
-      --neutral:        #9C9C9C;
-      --border:         #E8E8EC;
-      --success:        #10B981;
-      --warning:        #F59E0B;
-      --error:          #EF4444;
-      /* elevation — hover only */
-      --shadow-hover:   0 8px 30px rgba(0,0,0,0.08);
-      --shadow-btn-hv:  0 4px 12px rgba(99,102,241,0.35);
+      --text-primary:   #2C2416;
+      --text-secondary: #6B5E4A;
+      --neutral:        #A89880;
+      --border:         #EDE8DF;
+      --border-warm:    #DDD3C4;
+      --success:        #166534;
+      --warning:        #CA8A04;
+      --error:          #DC2626;
+      /* elevation */
+      --shadow-card:  0 2px 12px rgba(44,36,22,0.06);
+      --shadow-hover: 0 8px 28px rgba(44,36,22,0.10);
       /* radius */
-      --r-tag:  4px;
-      --r-btn:  6px;
-      --r-card: 12px;
+      --r-sm:   6px;
+      --r-md:   10px;
+      --r-card: 14px;
       --r-pill: 9999px;
       /* layout */
-      --header-h: 56px;
-      --nav-h:    52px;
+      --header-h: 60px;
+      --nav-h:    50px;
     }
 
     /* ── 리셋 ── */
@@ -48,27 +49,27 @@
       background: var(--bg);
       color: var(--text-secondary);
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--primary); text-decoration: none; }
+    a { color: var(--ocean); text-decoration: none; }
     a:hover { color: var(--primary-hover); }
 
     /* ── 헤더 ── */
     .site-header {
       height: var(--header-h);
-      background: var(--surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(255,253,247,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
     }
     .header-inner {
-      max-width: 1280px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -79,24 +80,23 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-display);
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 19px;
+      font-weight: 400;
       color: var(--text-primary);
-      letter-spacing: -0.03em;
+      letter-spacing: 0.01em;
     }
     .header-logo svg { color: var(--primary); }
     .header-date {
       font-size: 13px;
       font-weight: 400;
       color: var(--neutral);
-      font-family: var(--font-sans);
     }
     .header-count {
       margin-left: auto;
       background: var(--primary);
       color: #ffffff;
       font-size: 12px;
-      font-weight: 500;
+      font-weight: 600;
       padding: 3px 12px;
       border-radius: var(--r-pill);
       font-family: var(--font-sans);
@@ -112,9 +112,9 @@
       z-index: 99;
     }
     .nav-inner {
-      max-width: 1280px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 28px;
       height: 100%;
       display: flex;
       align-items: center;
@@ -124,17 +124,17 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
+      gap: 5px;
       flex: 1;
       padding: 4px 12px;
       border-radius: var(--r-pill);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-warm);
       font-size: 12px;
       font-weight: 500;
       color: var(--text-secondary);
       background: var(--bg);
       font-family: var(--font-sans);
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      transition: all 0.2s ease;
       cursor: pointer;
     }
     .nav-chip svg { width: 13px; height: 13px; stroke-width: 1.5; }
@@ -146,9 +146,9 @@
 
     /* ── 메인 레이아웃 ── */
     .page-main {
-      max-width: 1280px;
+      max-width: 1080px;
       margin: 0 auto;
-      padding: 48px 24px 96px;
+      padding: 48px 28px 96px;
     }
 
     /* ── 섹션 ── */
@@ -161,7 +161,7 @@
       align-items: center;
       gap: 12px;
       margin-bottom: 20px;
-      padding-bottom: 16px;
+      padding-bottom: 14px;
       border-bottom: 1px solid var(--border);
     }
     .section-icon {
@@ -170,18 +170,19 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      background: var(--primary);
-      border-radius: var(--r-btn);
-      color: #ffffff;
+      background: var(--primary-light);
+      border: 1px solid var(--border-warm);
+      border-radius: var(--r-sm);
+      color: var(--primary);
       flex-shrink: 0;
     }
     .section-icon svg { width: 16px; height: 16px; stroke-width: 1.5; }
     .section-title {
       font-family: var(--font-display);
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 22px;
+      font-weight: 400;
       color: var(--text-primary);
-      letter-spacing: -0.03em;
+      letter-spacing: 0.01em;
       line-height: 1.2;
     }
     .section-badge {
@@ -192,9 +193,8 @@
       font-weight: 400;
       padding: 2px 10px;
       border-radius: var(--r-pill);
-      border: 1px solid var(--border);
+      border: 1px solid var(--border-warm);
       font-family: var(--font-mono);
-      letter-spacing: 0.03em;
     }
     .empty {
       font-size: 13px;
@@ -214,9 +214,8 @@
       border: 1px solid var(--border);
       border-radius: var(--r-card);
       padding: 24px;
-      box-shadow: none;
-      overflow: hidden;
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -224,17 +223,17 @@
     .card:hover {
       box-shadow: var(--shadow-hover);
       transform: translateY(-2px);
+      border-color: var(--border-warm);
     }
     .card-title {
       font-size: 15px;
       font-weight: 500;
       color: var(--text-primary);
       line-height: 1.5;
-      font-family: var(--font-display);
-      letter-spacing: -0.02em;
-      transition: color 0.2s;
+      font-family: var(--font-sans);
+      transition: color 0.15s;
     }
-    .card-title:hover { color: var(--primary); cursor: pointer; }
+    .card-title:hover { color: var(--primary-hover); cursor: pointer; }
     .card-meta {
       display: flex;
       align-items: center;
@@ -246,7 +245,7 @@
       font-weight: 500;
       color: var(--neutral);
       font-family: var(--font-mono);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
     .meta-date {
       font-size: 12px;
@@ -262,15 +261,15 @@
       font-family: var(--font-sans);
     }
     .meta-badge.intl {
-      background: rgba(99,102,241,0.08);
-      color: var(--primary);
-      border: 1px solid rgba(99,102,241,0.2);
+      background: rgba(8,145,178,0.08);
+      color: var(--ocean);
+      border: 1px solid rgba(8,145,178,0.2);
     }
     .card-desc {
       font-size: 13px;
       font-weight: 400;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.65;
       display: -webkit-box;
       -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
@@ -280,12 +279,12 @@
     /* ── 푸터 ── */
     .site-footer {
       border-top: 1px solid var(--border);
-      padding: 24px;
+      padding: 24px 28px;
       text-align: center;
       font-size: 12px;
       color: var(--neutral);
       font-family: var(--font-mono);
-      letter-spacing: 0.03em;
+      letter-spacing: 0.02em;
     }
 
     /* ── 반응형 ── */
@@ -295,7 +294,7 @@
       .card { padding: 16px; }
       .header-date { display: none; }
       .page-main { padding-top: 32px; padding-bottom: 64px; }
-      .section-title { font-size: 20px; }
+      .section-title { font-size: 18px; }
     }
   </style>
 </head>
@@ -368,7 +367,7 @@
   </main>
 
   <footer class="site-footer">
-    마지막 업데이트: 2026-05-04 21:02 KST
+    마지막 업데이트: 2026-05-04 21:09 KST
   </footer>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>lucide.createIcons();</script>
