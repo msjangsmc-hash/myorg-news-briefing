@@ -6,29 +6,25 @@
   <meta name="robots" content="noindex, nofollow">
   <title>뉴스 브리핑 — 2026-05-03</title>
   <style>
-    /* ── VoiceBox Design System (magazine editorial) ── */
-    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap');
+    /* ── RawBlock Design System (brutalism) ── */
+    @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Work+Sans:wght@400;600;700&family=Space+Mono:wght@400;700&display=swap');
     :root {
       --font-display: "Archivo Black", Impact, "Arial Black", sans-serif;
       --font-sans:    "Work Sans", -apple-system, "Segoe UI", Helvetica, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
       --font-mono:    "Space Mono", "Courier New", Consolas, monospace;
       /* neutral */
-      --bg:        #FAFAFA;
-      --surface:   #F5F5F5;
-      --surface-raised: #E5E5E5;
-      --heading:   #0A0A0A;
-      --label:     #525252;
-      --body:      #525252;
-      --border:    #E5E5E5;
-      --border-md: #D4D4D4;
-      --border-strong: #0A0A0A;
-      /* brand */
-      --red:       #EF4444;
-      --red-hv:    #DC2626;
-      /* radius — all zero */
-      --r-sm:  0px;
-      --r-md:  0px;
-      --r-lg:  0px;
+      --bg:      #FFFFFF;
+      --surface: #F0F0F0;
+      --heading: #000000;
+      --label:   #000000;
+      --body:    #000000;
+      --border:  #000000;
+      --border-disabled: #CCCCCC;
+      /* semantic */
+      --green:   #008000;
+      --orange:  #FFA500;
+      --red:     #FF0000;
+      --blue:    #0000FF;
       /* layout */
       --header-h: 60px;
       --nav-h:    52px;
@@ -42,16 +38,16 @@
       background: var(--bg);
       color: var(--body);
       font-size: 16px;
-      line-height: 1.7;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: inherit; text-decoration: none; }
+    a { color: var(--blue); text-decoration: underline; }
 
     /* ── 헤더 ── */
     .site-header {
       height: var(--header-h);
       background: var(--bg);
-      border-bottom: 2px solid var(--border-strong);
+      border-bottom: 5px solid var(--border);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -70,18 +66,19 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-display);
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 400;
       color: var(--heading);
-      letter-spacing: -0.02em;
+      letter-spacing: 0.02em;
       text-transform: uppercase;
+      text-decoration: none;
     }
-    .header-logo svg { color: var(--red); }
+    .header-logo svg { color: var(--heading); }
     .header-date {
       font-size: 12px;
       font-weight: 700;
       color: var(--label);
-      font-family: var(--font-sans);
+      font-family: var(--font-mono);
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
@@ -91,9 +88,9 @@
       color: var(--bg);
       font-size: 12px;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 0;
-      font-family: var(--font-sans);
+      padding: 4px 12px;
+      border: 3px solid var(--border);
+      font-family: var(--font-mono);
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
@@ -102,7 +99,7 @@
     .kw-nav {
       height: var(--nav-h);
       background: var(--bg);
-      border-bottom: 2px solid var(--border);
+      border-bottom: 3px solid var(--border);
       position: sticky;
       top: var(--header-h);
       z-index: 99;
@@ -123,30 +120,28 @@
       gap: 6px;
       flex: 1;
       padding: 5px 14px;
-      border-radius: 0;
-      border: 2px solid var(--border-md);
-      font-size: 12px;
+      border: 2px solid var(--border);
+      font-size: 10px;
       font-weight: 700;
       color: var(--label);
       background: var(--bg);
       font-family: var(--font-sans);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      letter-spacing: 0.1em;
       cursor: pointer;
+      transition: background 0.1s, color 0.1s;
     }
-    .nav-chip svg { width: 14px; height: 14px; stroke-width: 1.5; }
+    .nav-chip svg { width: 14px; height: 14px; stroke-width: 2; }
     .nav-chip:hover {
-      color: var(--red);
-      border-color: var(--red);
-      background: var(--bg);
+      background: var(--heading);
+      color: var(--bg);
     }
 
     /* ── 메인 레이아웃 ── */
     .page-main {
       max-width: 1080px;
       margin: 0 auto;
-      padding: 48px 32px 96px;
+      padding: 40px 32px 80px;
     }
 
     /* ── 섹션 ── */
@@ -160,7 +155,7 @@
       gap: 10px;
       margin-bottom: 20px;
       padding-bottom: 16px;
-      border-bottom: 3px solid var(--border-strong);
+      border-bottom: 5px solid var(--border);
     }
     .section-icon {
       display: flex;
@@ -168,37 +163,38 @@
       justify-content: center;
       width: 32px;
       height: 32px;
-      background: var(--red);
-      border-radius: 0;
-      color: #ffffff;
+      background: var(--heading);
+      color: var(--bg);
       flex-shrink: 0;
     }
-    .section-icon svg { width: 16px; height: 16px; stroke-width: 1.5; }
+    .section-icon svg { width: 16px; height: 16px; stroke-width: 2; }
     .section-title {
       font-family: var(--font-display);
-      font-size: 24px;
+      font-size: 32px;
       font-weight: 400;
       color: var(--heading);
-      letter-spacing: -0.01em;
+      letter-spacing: 0em;
+      line-height: 1.1;
       text-transform: uppercase;
     }
     .section-badge {
       margin-left: auto;
-      background: var(--surface);
+      background: var(--bg);
       color: var(--label);
       font-size: 11px;
       font-weight: 700;
       padding: 2px 10px;
-      border-radius: 0;
-      border: 2px solid var(--border-md);
+      border: 3px solid var(--border);
       font-family: var(--font-mono);
       text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .empty {
       font-size: 14px;
       color: var(--label);
       padding: 32px 0;
       text-align: center;
+      font-family: var(--font-mono);
     }
 
     /* ── 카드 그리드 ── */
@@ -209,27 +205,25 @@
     }
     .card {
       background: var(--bg);
-      border: 2px solid var(--border);
-      border-radius: 0;
-      padding: 20px 24px;
+      border: 3px solid var(--border);
+      padding: 24px;
       box-shadow: none;
-      transition: border-color 0.15s;
+      transition: border-width 0.1s;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
     .card:hover {
-      border-color: var(--border-strong);
+      border-width: 5px;
     }
     .card-title {
       font-size: 15px;
-      font-weight: 400;
+      font-weight: 600;
       color: var(--heading);
       line-height: 1.5;
       font-family: var(--font-sans);
-      transition: color 0.12s;
     }
-    .card-title:hover { color: var(--red); }
+    .card-title:hover { text-decoration: underline; cursor: pointer; }
     .card-meta {
       display: flex;
       align-items: center;
@@ -254,20 +248,19 @@
       font-size: 10px;
       font-weight: 700;
       padding: 1px 6px;
-      border-radius: 0;
-      font-family: var(--font-sans);
+      font-family: var(--font-mono);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.06em;
     }
     .meta-badge.intl {
-      background: var(--surface);
+      background: var(--bg);
       color: var(--heading);
-      border: 2px solid var(--border-md);
+      border: 2px solid var(--border);
     }
     .card-desc {
       font-size: 14px;
       font-weight: 400;
-      color: var(--label);
+      color: var(--body);
       line-height: 1.6;
       display: -webkit-box;
       -webkit-line-clamp: 3;
@@ -277,7 +270,7 @@
 
     /* ── 푸터 ── */
     .site-footer {
-      border-top: 2px solid var(--border-strong);
+      border-top: 5px solid var(--border);
       padding: 24px 32px;
       text-align: center;
       font-size: 12px;
@@ -294,7 +287,7 @@
       .card { padding: 16px; }
       .header-date { display: none; }
       .page-main { padding-top: 32px; padding-bottom: 64px; }
-      .section-title { font-size: 18px; }
+      .section-title { font-size: 22px; }
     }
   </style>
 </head>
@@ -367,7 +360,7 @@
   </main>
 
   <footer class="site-footer">
-    마지막 업데이트: 2026-05-04 20:50 KST
+    마지막 업데이트: 2026-05-04 20:53 KST
   </footer>
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <script>lucide.createIcons();</script>
